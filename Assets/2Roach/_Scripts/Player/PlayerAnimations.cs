@@ -22,6 +22,7 @@ public class PlayerAnimations : MonoBehaviour
         //_sourceMoving.mute = !_player.IsMoving;
        _animator.SetBool("isMoving", _player.IsMoving);
        _animator.SetBool("isCarry", _player.IsCarrying);
+       _animator.SetFloat("input", _player.Input.magnitude);
     }
 
 }

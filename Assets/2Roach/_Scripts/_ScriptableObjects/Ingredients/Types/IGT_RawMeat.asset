@@ -18,4 +18,4 @@ MonoBehaviour:
   _timeToProcess: 3
   _afterProcessIngredient: {fileID: 11400000, guid: 81d2e074c5cbb1b47ab1b1dcf5eca219,
     type: 2}
-  _carrySpeedMultiplier: 1
+  _carrySpeedMultiplier: 0.8

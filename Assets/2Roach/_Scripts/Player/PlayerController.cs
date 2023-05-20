@@ -15,11 +15,13 @@ public class PlayerController : MonoBehaviour, IPlayerController
 
     [Header("Stats Base")]
     [SerializeField][Range(6,18)] private float _baseSpeed = 6;
+    [SerializeField][Range(1,18)] private float _minSpeed = 6;
     [SerializeField]private float _baseTurnSpeed = 360;
     [SerializeField] private Transform _holdingTransform;
 
+    private float _currentSpeed;
 
-    private Stack _currentStack = new Stack();
+    private Stack _currentStack;
 
     public Stack CurrentStack 
     { 
@@ -51,7 +53,12 @@ public class PlayerController : MonoBehaviour, IPlayerController
         { 
             Instance = this; 
         } 
+    }
 
+    private void Start()
+    {
+        _currentStack = new Stack();
+        UpdateSpeed();
     }
 
     private void OnEnable()
@@ -69,6 +76,7 @@ public class PlayerController : MonoBehaviour, IPlayerController
 
     private void FixedUpdate() 
     {
+        _isCarrying = _currentStack?.StackedIngredients.Count > 0 ? true : false;  
         Move();
     }
     private void LateUpdate() 
@@ -82,9 +90,7 @@ public class PlayerController : MonoBehaviour, IPlayerController
     }
     private void GatherInteractInput(bool newInput) 
     {
-        /* if (_isCarrying) {
-            _currentIngredient = null;
-        }  */
+        _isInteracting = newInput;
     }
 
 
@@ -104,11 +110,7 @@ public class PlayerController : MonoBehaviour, IPlayerController
 
     private void Move() 
     {
-        var speed = _baseSpeed;
-        _isCarrying = _currentStack.StackedIngredients.Count > 0 ? true : false;
-        //if(_isCarrying) speed = speed * _currentStack.CarrySpeedMultiplier;
-            
-        _rb.MovePosition(transform.position + _model.transform.forward * _inputVec.normalized.magnitude * speed * Time.deltaTime);
+        _rb.MovePosition(transform.position + _model.transform.forward * _inputVec.normalized.magnitude * _currentSpeed * Time.deltaTime);
     }
 
 
@@ -124,8 +126,10 @@ public class PlayerController : MonoBehaviour, IPlayerController
             Transform lastChild = _holdingTransform.GetChild(_holdingTransform.childCount-2);
             newIngredientGO.transform.localPosition = new Vector3(0, lastChild.localPosition.y + lastChild.localScale.y + newIngredientGO.transform.localScale.y, 0);
         }
-        
+
+        UpdateSpeed();
     }
+
 
     public void ResetCurrentStack() {
         _currentStack.ResetStack();
@@ -133,8 +137,26 @@ public class PlayerController : MonoBehaviour, IPlayerController
         foreach (Transform ingredientGO in _holdingTransform) {
             Object.Destroy(ingredientGO.gameObject);
         }
+
+        UpdateSpeed();
     }
 
+    private void UpdateSpeed()
+    {
+        if( _currentStack != null &&_currentStack.StackedIngredients.Count > 0)
+        {
+            foreach (var ing in _currentStack.StackedIngredients)
+            {
+                _currentSpeed *= ing.CarrySpeedMultiplier;
+            }   
+        }
+        else
+        {
+            _currentSpeed = _baseSpeed;
+        } 
+
+        if(_currentSpeed <_minSpeed) _currentSpeed = _minSpeed;
+    }
 }
 
 public static class Helpers 
