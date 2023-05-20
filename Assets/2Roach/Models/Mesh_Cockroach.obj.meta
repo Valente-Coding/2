@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Geo_CockroachMat
-    second: {fileID: 2100000, guid: 64bb4f5874b91e0489be8a26c97eb60e, type: 2}
+    second: {fileID: 2100000, guid: 218f7e5218fe35143b963217f304fd73, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
