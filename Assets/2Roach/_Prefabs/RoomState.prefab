@@ -50,6 +50,9 @@ MonoBehaviour:
   _state: 0
   _input: {fileID: 11400000, guid: 6358288955754b245b578ca3e8bd2282, type: 2}
   _hasBeenOnSaloon: 0
+  _cam_Kitchen: {fileID: 0}
+  _cam_Hole: {fileID: 0}
+  _cam_Saloon: {fileID: 0}
 --- !u!1 &6628846015241236959
 GameObject:
   m_ObjectHideFlags: 0

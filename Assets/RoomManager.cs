@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public enum RoomState
 {
@@ -8,16 +9,29 @@ public enum RoomState
     Saloon
 }
 
+public enum VCameras
+{
+    Kitchen,
+    Hole,
+    Saloon
+}
+
 public class RoomManager : MonoBehaviour
 {
     [SerializeField] PlayerController _player;
     [SerializeField] WaveManager _waveManager;
+
     [SerializeField] RoomState _state;
     [SerializeField] InputReader _input;
     [SerializeField] bool _hasBeenOnSaloon = false;
-
+    
+    [Header("Cams")]
+    [SerializeField] CinemachineVirtualCamera _cam_Kitchen;
+    [SerializeField] CinemachineVirtualCamera _cam_Hole;
+    [SerializeField] CinemachineVirtualCamera _cam_Saloon; 
     public RoomState State { get => _state;  }
 
+    private void Start() => ActivateCamera(VCameras.Kitchen);
     private void OnEnable()
     {
         _input.SwitchEvent += SwitchRoom;
@@ -53,10 +67,12 @@ public class RoomManager : MonoBehaviour
     private IEnumerator COR_GoToSaloon()
     {
         _input.DisableAllInput();
+        ActivateCamera(VCameras.Hole);
         //Camera Magic
         //Vignette Magic
-        yield return Yielders.Get(1f);
+        yield return Yielders.Get(2f);
         _player.Switch(RoomState.Saloon);
+        ActivateCamera(VCameras.Saloon);
         _input.EnableGameplayInput();
         TriggerFirstWave();
     }
@@ -66,6 +82,7 @@ public class RoomManager : MonoBehaviour
         _input.DisableAllInput();
         //Camera Magic
         //Vignette Magic
+         ActivateCamera(VCameras.Kitchen);
         yield return Yielders.Get(1f);
         _player.Switch(RoomState.Kitchen);
         _input.EnableGameplayInput();
@@ -80,6 +97,28 @@ public class RoomManager : MonoBehaviour
     private void OnStateChange()
     {
         //Debug.Log("Play Common FX here!!!");
+    }
+
+    private void ActivateCamera(VCameras camToActivate)
+    {
+        switch (camToActivate)
+        {
+            case VCameras.Kitchen:
+                _cam_Kitchen.gameObject.SetActive(true);
+                _cam_Hole.gameObject.SetActive(false);
+                _cam_Saloon.gameObject.SetActive(false);
+            break;
+            case VCameras.Hole:
+                _cam_Hole.gameObject.SetActive(true);
+                _cam_Kitchen.gameObject.SetActive(false);
+                _cam_Saloon.gameObject.SetActive(false);
+            break;
+                case VCameras.Saloon:
+                _cam_Saloon.gameObject.SetActive(true);
+                _cam_Kitchen.gameObject.SetActive(false);
+                _cam_Hole.gameObject.SetActive(false);
+            break;
+        }
     }
 
 }

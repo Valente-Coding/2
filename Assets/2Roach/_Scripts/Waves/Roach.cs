@@ -61,9 +61,17 @@ public class Roach : MonoBehaviour
     }
 
 
-    public void RequestFood()
+    public void TakeOrder()
     {
-        _hasOrdered =true;
+        if(_hasOrdered ==false)
+        {
+            _hasOrdered = true;
+        //UI pop-up with wanted FOOD
+        }
+        else
+        {
+            Debug.Log("already ordered");
+        }
     }
 
     private IEnumerator COR_Order()
@@ -105,7 +113,12 @@ public class Roach : MonoBehaviour
             return;
         }
 
-        
+        if(foodStack.IsEmpty())
+        {
+            Debug.Log("No food here");
+            return;
+        }
+
         _hasReceivedFood = true;
 
         var isTheSame = true;
@@ -132,7 +145,7 @@ public class Roach : MonoBehaviour
 
         if(isTheSame)
         {
-            Debug.Log("Stack if PERFECT");
+            Debug.Log("Stack is PERFECT");
             //GameManager.Score.Add(MaxPoints)
         }
         else

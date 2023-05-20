@@ -26,19 +26,22 @@ public class Table : MonoBehaviour
         if(_playerInRange)
         {
             Debug.Log("Interacting with table: "+ this.name);
-            SubmitStackToTable(_player.CurrentStack);
+            InteractWithTable(_player.CurrentStack);
         }
     }
 
-    public void SubmitStackToTable(Stack stack)
+    private void InteractWithTable(Stack stack)
     {
         foreach (var roach in _tableRoaches)
         {
             if(roach.IsPlaying)
             {
-                roach.ReceiveStackFood(stack);
+                roach.TakeOrder();
+                
+                if(stack != null)
+                    roach.ReceiveStackFood(stack);
             }
-        }
+        }       
     }
 
     /// <summary>

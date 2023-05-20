@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour, IPlayerController
     [Header("Components")]
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private GameObject _model;
+    [SerializeField] private GameObject _hat;
     [SerializeField] private InputReader _input;
     public Vector3 MoveInput { get => _inputVec;  }
     public GameObject Model { get => _model; }
@@ -119,11 +120,13 @@ public class PlayerController : MonoBehaviour, IPlayerController
         if(destination == RoomState.Kitchen)
         {
             transform.position = new Vector3(0,transform.position.y + 100, 0);
+            _hat.SetActive(true);
         }
 
         if(destination == RoomState.Saloon)
         {
             transform.position = new Vector3(0, transform.position.y - 100, 0);
+            _hat.SetActive(false);
         }
        
     }
