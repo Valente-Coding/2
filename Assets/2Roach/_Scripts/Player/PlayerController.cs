@@ -118,12 +118,12 @@ public class PlayerController : MonoBehaviour, IPlayerController
     {
         if(destination == RoomState.Kitchen)
         {
-            transform.position = new Vector3(0,transform.position.y - 100, 0);
+            transform.position = new Vector3(0,transform.position.y + 100, 0);
         }
 
         if(destination == RoomState.Saloon)
         {
-            transform.position =   new Vector3(0,transform.position.y + 100, 0);
+            transform.position = new Vector3(0, transform.position.y - 100, 0);
         }
        
     }

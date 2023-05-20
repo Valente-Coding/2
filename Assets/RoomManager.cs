@@ -34,21 +34,41 @@ public class RoomManager : MonoBehaviour
         switch (_state)
         {               
             case RoomState.Kitchen:
-                TriggerFirstWave();
                 _state = RoomState.Saloon;
-                _player.Switch(RoomState.Saloon);
+                 StartCoroutine(COR_GoToSaloon());
                 OnStateChange();
                 Debug.Log("Switching to Saloon");
             break;
 
             case  RoomState.Saloon:
-                 _state = RoomState.Kitchen;
-                 _player.Switch(RoomState.Kitchen);
+                _state = RoomState.Kitchen;
+                 StartCoroutine(COR_GoToKitchen());
                  OnStateChange();
                 Debug.Log("Switching to Kitchen");
             break;
         }        
 
+    }
+
+    private IEnumerator COR_GoToSaloon()
+    {
+        _input.DisableAllInput();
+        //Camera Magic
+        //Vignette Magic
+        yield return Yielders.Get(1f);
+        _player.Switch(RoomState.Saloon);
+        _input.EnableGameplayInput();
+        TriggerFirstWave();
+    }
+
+    private IEnumerator COR_GoToKitchen()
+    {
+        _input.DisableAllInput();
+        //Camera Magic
+        //Vignette Magic
+        yield return Yielders.Get(1f);
+        _player.Switch(RoomState.Kitchen);
+        _input.EnableGameplayInput();
     }
 
     private void TriggerFirstWave()
@@ -59,7 +79,7 @@ public class RoomManager : MonoBehaviour
     }
     private void OnStateChange()
     {
-        Debug.Log("Play SFX here!!!");
+        //Debug.Log("Play Common FX here!!!");
     }
 
 }
