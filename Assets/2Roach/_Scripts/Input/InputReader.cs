@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "InputReader", menuName = "Game/Input Reader")]
-public class InputReader : ScriptableObject, DefaultActionMap.IGameplayActions
+public class InputReader : ScriptableObject, GameInput.IGameplayActions
 {
 	
 	// Assign delegate{} to events to initialise them with an empty delegate
@@ -17,13 +17,13 @@ public class InputReader : ScriptableObject, DefaultActionMap.IGameplayActions
 	public event UnityAction StartedRunning = delegate { };
 	public event UnityAction StoppedRunning = delegate { };
 
-	private DefaultActionMap _gameInput;
+	private GameInput _gameInput;
 
 	private void OnEnable()
 	{
 		if (_gameInput == null)
 		{
-			_gameInput = new DefaultActionMap();
+			_gameInput = new GameInput();
 			_gameInput.Gameplay.SetCallbacks(this);
 			EnableGameplayInput();
 		}
