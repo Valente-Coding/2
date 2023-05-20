@@ -14,8 +14,6 @@ public class PlayerController : MonoBehaviour, IPlayerController
     
 
     [Header("Stats Base")]
-    [SerializeField][Range(6,18)] private float _baseSpeed = 6;
-    [SerializeField][Range(1,18)] private float _minSpeed = 6;
     [SerializeField]private float _baseTurnSpeed = 360;
     [SerializeField] private Transform _holdingTransform;
 
@@ -58,7 +56,7 @@ public class PlayerController : MonoBehaviour, IPlayerController
     private void Start()
     {
         _currentStack = new Stack();
-        UpdateSpeed();
+        _currentStack.StackHolder = _holdingTransform;
     }
 
     private void OnEnable()
@@ -110,53 +108,9 @@ public class PlayerController : MonoBehaviour, IPlayerController
 
     private void Move() 
     {
-        _rb.MovePosition(transform.position + _model.transform.forward * _inputVec.normalized.magnitude * _currentSpeed * Time.deltaTime);
+        _rb.MovePosition(transform.position + _model.transform.forward * _inputVec.normalized.magnitude * _currentStack.StackSpeedMultiplier * Time.deltaTime);
     }
 
-
-    public void AddIngredientToCurrentStack(Ingredient newIngredient) {
-        if (newIngredient == null) return;
-        
-        _currentStack.StackedIngredients.Add(newIngredient);
-
-
-        GameObject newIngredientGO = GameObject.Instantiate(newIngredient.PrefModel, _holdingTransform);
-        
-        if (_holdingTransform.childCount > 1) {
-            Transform lastChild = _holdingTransform.GetChild(_holdingTransform.childCount-2);
-            newIngredientGO.transform.localPosition = new Vector3(0, lastChild.localPosition.y + lastChild.localScale.y + newIngredientGO.transform.localScale.y, 0);
-        }
-
-        UpdateSpeed();
-    }
-
-
-    public void ResetCurrentStack() {
-        _currentStack.ResetStack();
-        
-        foreach (Transform ingredientGO in _holdingTransform) {
-            Object.Destroy(ingredientGO.gameObject);
-        }
-
-        UpdateSpeed();
-    }
-
-    private void UpdateSpeed()
-    {
-        if( _currentStack != null &&_currentStack.StackedIngredients.Count > 0)
-        {
-            foreach (var ing in _currentStack.StackedIngredients)
-            {
-                _currentSpeed *= ing.CarrySpeedMultiplier;
-            }   
-        }
-        else
-        {
-            _currentSpeed = _baseSpeed;
-        } 
-
-        if(_currentSpeed <_minSpeed) _currentSpeed = _minSpeed;
-    }
 }
 
 public static class Helpers 
