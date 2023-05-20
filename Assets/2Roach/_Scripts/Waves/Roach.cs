@@ -4,18 +4,21 @@ using UnityEngine;
 
 public enum RoachState
 {
+     Dormant,
     Choosing,
     WaitingToOrder, 
     WaitingForFood, 
     IsEating, 
-    Completed,
-    Failed,
 }
 
 public class Roach : MonoBehaviour
 {
+    [ContextMenu("GetModel")]
+    private void GetModel() => _model = transform.GetChild(0).gameObject;
+
     [SerializeField]private RoachID _id;
-    [SerializeField]private bool _enabled;
+    [SerializeField]private GameObject _model;
+    [SerializeField]private bool _isPlaying;
     
     [Header("Shared Data:")]
     [SerializeField] private float _waitingToOrder_Time;
@@ -26,22 +29,35 @@ public class Roach : MonoBehaviour
     [SerializeField]private RoachState _state;
     [SerializeField]private Order _currentOrder;
 
-    private bool _hasOrdered;
-    private bool _hasReceivedFood;
+    private bool _hasOrdered = false;
+    private bool _hasReceivedFood = false;
 
     public RoachID Id { get => _id; }
-    public RoachState State { get => _state; }
+    public RoachState State 
+    { 
+        get => _state; 
+    private set 
+        {
+            _state = value;
+            Debug.Log(_id + " - State: " + value);
+        }
+    }
     public Order CurrentOrder { get => _currentOrder;  }
+    public bool IsPlaying { get => _isPlaying; }
+
+   
+    private void Start() => _model.gameObject.SetActive(false);
 
     public void InitOrder(Order order)
     {
-        _enabled= true;
+        _isPlaying= true;
+        _model.gameObject.SetActive(true);
         _hasOrdered = false;
         _hasReceivedFood = false;
 
         _currentOrder = order;
         StartCoroutine(COR_Order());
-        Debug.Log(_id + "has the order" + order.name);
+        Debug.Log(_id + " will order " + order.name);
     }
 
 
@@ -52,30 +68,38 @@ public class Roach : MonoBehaviour
 
     private IEnumerator COR_Order()
     {
-        _state = RoachState.Choosing;
+        State = RoachState.Choosing;
+    
         yield return Yielders.Get(_currentOrder.Delay);
 
-        _state = RoachState.WaitingToOrder;
+        State = RoachState.WaitingToOrder;
         // UI.PopUp order is available
-        yield return StartCoroutine(WaitForTimeOrCondition(_waitingToOrder_Time,_hasOrdered));
-        if(!_hasOrdered) FailOrder();
-        
-        _state = RoachState.WaitingForFood;
+        yield return StartCoroutine(WaitForTimeOrCondition(_waitingToOrder_Time, _hasOrdered));
+        if(!_hasOrdered)
+        {
+            FailOrder();
+            yield break;
+        } 
+   
+        State = RoachState.WaitingForFood;
         // UI.PopUp waiting for food.
-        yield return StartCoroutine(WaitForTimeOrCondition(_waitingForFood_Time,_hasReceivedFood));
-        if(!_hasReceivedFood) FailOrder();
+        yield return StartCoroutine(WaitForTimeOrCondition(_waitingForFood_Time, _hasReceivedFood));
+        if(!_hasReceivedFood)
+        {
+            FailOrder();
+            yield break;
+        }
 
-        _state = RoachState.IsEating;
+        State = RoachState.IsEating;
         yield return Yielders.Get(_currentOrder.EatTime);
 
         CompletedOrder();
     }
 
 
-
     public void ReceiveStackFood(Stack foodStack)
     {
-        if(_state != RoachState.WaitingForFood)
+        if(State != RoachState.WaitingForFood)
         {
             Debug.Log("Not Waiting for food.");
             return;
@@ -142,16 +166,18 @@ public class Roach : MonoBehaviour
 
     private void FailOrder()
     {
-        _state = RoachState.Failed;
-        _enabled = false;
-        this.gameObject.SetActive(false);
+        StopCoroutine(COR_Order());
+        State = RoachState.Dormant;
+        _isPlaying = false;
+        _model.gameObject.SetActive(false);
     }
 
     private void CompletedOrder()
     {
-        _state = RoachState.Completed;
-        _enabled = false;
-        this.gameObject.SetActive(false);
+        StopCoroutine(COR_Order());;
+        State = RoachState.Dormant;
+        _isPlaying = false;
+        _model.gameObject.SetActive(false);
     }
 
 }

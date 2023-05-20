@@ -44,8 +44,8 @@ public class WaveManager : MonoBehaviour
     private IEnumerator COR_Wave(Wave waveData)
     {
         yield return Yielders.Get(waveData.RestDurationBeforeWave);
+        _roachOrderIterator = waveData.RoachOrders.GetEnumerator();
         //GameManager.Instance.ChangeGamePhase(GameManager.GamePhase.Wave); TODO
-
         Debug.Log("Wave Started!" );
 
         while (_roachOrderIterator.MoveNext())
@@ -56,23 +56,28 @@ public class WaveManager : MonoBehaviour
             roach.gameObject.SetActive(true);
             roach.InitOrder(_roachOrderIterator.Current.Order);
         }
-    
-        yield return new WaitUntil(()=> AllRoachesCompletedOrFailed());
+        Debug.Log("Wave Started!" );
+        yield return StartCoroutine(COR_WaitForRoaches());
         
         Debug.Log("Wave Completed!");
         //GameManager.Instance.WavesConquered++; TODO
         StartNextWave();
     }
+    
+    private IEnumerator COR_WaitForRoaches()
+    {
+        while(AllRoachesCompletedOrFailed() == false)
+        {
+            Debug.Log("Check!");
+            yield return Yielders.Get(1.5f);
+        }
+    }
 
-    /// <summary>
-    /// THIS FOREACH IS TROUBLE
-    /// </summary>
-    /// <returns></returns>
     public bool AllRoachesCompletedOrFailed()
     {
         foreach (var roach in _roaches)
         {
-            if(roach.State != RoachState.Completed || roach.State != RoachState.Failed)
+            if(roach.State != RoachState.Dormant)
                 return false;
         }
 

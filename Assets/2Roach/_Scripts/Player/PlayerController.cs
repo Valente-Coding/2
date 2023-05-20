@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour, IPlayerController
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private GameObject _model;
     [SerializeField] private InputReader _input;
-    public Vector3 Input { get => _inputVec;  }
+    public Vector3 MoveInput { get => _inputVec;  }
     public GameObject Model { get => _model; }
     public Rigidbody Rb { get => _rb;  }
     
@@ -111,6 +111,22 @@ public class PlayerController : MonoBehaviour, IPlayerController
         _rb.MovePosition(transform.position + _model.transform.forward * _inputVec.normalized.magnitude * _currentStack.StackSpeedMultiplier * Time.deltaTime);
     }
 
+    /// <summary>
+    /// Sends the player to the opposite area
+    /// </summary>
+    public void Switch(RoomState destination)
+    {
+        if(destination == RoomState.Kitchen)
+        {
+            transform.position = new Vector3(0,transform.position.y - 100, 0);
+        }
+
+        if(destination == RoomState.Saloon)
+        {
+            transform.position =   new Vector3(0,transform.position.y + 100, 0);
+        }
+       
+    }
 }
 
 public static class Helpers 
