@@ -32,7 +32,7 @@ public class WaveManager : MonoBehaviour
         else
         {
             Debug.Log("No more waves Available.");
-           // GameManager.Instance.Win(); TODO
+            GameManager.instance.Win();
             return;
         }
 
@@ -56,6 +56,7 @@ public class WaveManager : MonoBehaviour
             roach.gameObject.SetActive(true);
             roach.InitOrder(_roachOrderIterator.Current.Order);
         }
+        UIManager.instance.DisplayAlertMsg("Roaches Alert!!", 3f);
         Debug.Log("Wave Started!" );
         yield return StartCoroutine(COR_WaitForRoaches());
         
