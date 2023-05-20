@@ -9,7 +9,7 @@ public class ProcessIngredient : MonoBehaviour
     [SerializeField] private Ingredient _currentIngredient;
     [SerializeField] private bool _isProcessing = false;
 
-    private bool _canPlace = false;
+    private bool _canInteract = false;
 
     public Ingredient IngredientToProcess { get => _currentIngredient; set => OnIngredientChange(value); }
 
@@ -18,13 +18,13 @@ public class ProcessIngredient : MonoBehaviour
     }
 
     private void InteractWithTool(bool newInput) {
-        if (newInput == true && _canPlace == true && _isProcessing == false && _currentIngredient == null && _playerControler.CurrentStack.StackedIngredients.Count == 1) {
+        if (newInput == true && _canInteract == true && _isProcessing == false && _currentIngredient == null && _playerControler.CurrentStack.StackedIngredients.Count == 1) {
             IngredientToProcess = _playerControler.CurrentStack.StackedIngredients[0];
             
-            _playerControler.ResetCurrentStack();
+            _playerControler.CurrentStack.ResetStack();
         }
-        else if (newInput == true && _canPlace == true && _playerControler.CurrentStack == null && _currentIngredient != null) {
-            _playerControler.AddIngredientToCurrentStack(_currentIngredient);
+        else if (newInput == true && _canInteract == true && _currentIngredient != null) {
+            _playerControler.CurrentStack.AddIngredientToCurrentStack(_currentIngredient);
             _currentIngredient = null;
         }
     }
@@ -45,13 +45,13 @@ public class ProcessIngredient : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Player") {
-            _canPlace = true;
+            _canInteract = true;
         }
     }
 
     private void OnTriggerExit(Collider other) {
         if (other.tag == "Player") {
-            _canPlace = false;
+            _canInteract = false;
         }
     }
 }
