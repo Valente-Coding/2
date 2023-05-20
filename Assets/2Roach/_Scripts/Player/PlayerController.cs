@@ -16,19 +16,18 @@ public class PlayerController : MonoBehaviour, IPlayerController
     [Header("Stats Base")]
     [SerializeField][Range(6,18)] private float _baseSpeed = 6;
     [SerializeField]private float _baseTurnSpeed = 360;
+    [SerializeField] private Transform _holdingTransform;
 
-/*     [SerializeField] private Ingredient _currentIngredient;
-    public Ingredient CurrentIngredient 
+
+    private Stack _currentStack = new Stack();
+
+    public Stack CurrentStack 
     { 
-        get => _currentIngredient; 
-        set 
-        {
-            Debug.Log("Ingredient Changed to: " +value.name);
-            _currentIngredient = value; 
-        } 
+        get => _currentStack;
+        set => _currentStack = value;
             
     }
- */
+
     
     private bool _isMoving = false;
     private bool _isCarrying = false;
@@ -83,7 +82,9 @@ public class PlayerController : MonoBehaviour, IPlayerController
     }
     private void GatherInteractInput(bool newInput) 
     {
-        _isCarrying = newInput;
+        /* if (_isCarrying) {
+            _currentIngredient = null;
+        }  */
     }
 
 
@@ -104,9 +105,34 @@ public class PlayerController : MonoBehaviour, IPlayerController
     private void Move() 
     {
         var speed = _baseSpeed;
-        //if(_isCarrying) speed = _currentIngredient.CarrySpeedMultiplier;
+        _isCarrying = _currentStack.StackedIngredients.Count > 0 ? true : false;
+        //if(_isCarrying) speed = speed * _currentStack.CarrySpeedMultiplier;
             
         _rb.MovePosition(transform.position + _model.transform.forward * _inputVec.normalized.magnitude * speed * Time.deltaTime);
+    }
+
+
+    public void AddIngredientToCurrentStack(Ingredient newIngredient) {
+        if (newIngredient == null) return;
+        
+        _currentStack.StackedIngredients.Add(newIngredient);
+
+
+        GameObject newIngredientGO = GameObject.Instantiate(newIngredient.PrefModel, _holdingTransform);
+        
+        if (_holdingTransform.childCount > 1) {
+            Transform lastChild = _holdingTransform.GetChild(_holdingTransform.childCount-2);
+            newIngredientGO.transform.localPosition = new Vector3(0, lastChild.localPosition.y + lastChild.localScale.y + newIngredientGO.transform.localScale.y, 0);
+        }
+        
+    }
+
+    public void ResetCurrentStack() {
+        _currentStack.ResetStack();
+        
+        foreach (Transform ingredientGO in _holdingTransform) {
+            Object.Destroy(ingredientGO.gameObject);
+        }
     }
 
 }
