@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.122812726, g: 0.116736285, b: 0.17475186, a: 1}
+  m_IndirectSpecularColor: {r: 0.12754294, g: 0.12151534, b: 0.17910206, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1987,11 +1987,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Salloon
-      objectReference: {fileID: 0}
-    - target: {fileID: 1874104162530629182, guid: 6584dab45fdd52b4ca488fc00ceb626a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1874104162530629183, guid: 6584dab45fdd52b4ca488fc00ceb626a,
         type: 3}
