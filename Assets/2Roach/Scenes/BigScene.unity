@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.3568832, g: 0.34602222, b: 0.43597114, a: 1}
+  m_IndirectSpecularColor: {r: 0.36028183, g: 0.34953183, b: 0.43871197, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1069,6 +1069,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1263779445}
     m_Modifications:
+    - target: {fileID: 7972656517540281785, guid: e5c42e7cc27b32146907c365adb8c58f,
+        type: 3}
+      propertyPath: _tableRoaches.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7972656517540281785, guid: e5c42e7cc27b32146907c365adb8c58f,
+        type: 3}
+      propertyPath: _tableRoaches.Array.data[0]
+      value: 
+      objectReference: {fileID: 432366414}
+    - target: {fileID: 7972656517540281785, guid: e5c42e7cc27b32146907c365adb8c58f,
+        type: 3}
+      propertyPath: _tableRoaches.Array.data[1]
+      value: 
+      objectReference: {fileID: 432366413}
+    - target: {fileID: 7972656517540281785, guid: e5c42e7cc27b32146907c365adb8c58f,
+        type: 3}
+      propertyPath: _tableRoaches.Array.data[2]
+      value: 
+      objectReference: {fileID: 432366412}
     - target: {fileID: 8273827661497322675, guid: e5c42e7cc27b32146907c365adb8c58f,
         type: 3}
       propertyPath: m_RootOrder
