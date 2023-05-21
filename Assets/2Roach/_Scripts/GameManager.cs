@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public RoomState GameState { get => _gameState;  }
    
     public Score Score { get => _score;  }
+    public SceneLoader SceneLoader { get => _sceneLoader;}
+
     private Score _score = new Score();
 
     public static GameManager instance;

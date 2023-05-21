@@ -240,6 +240,7 @@ public class Roach : MonoBehaviour
 
     private void CompletedOrder()
     {
+        HideIconBubble();
         _happy_CUE?.Play();
         StopCoroutine(COR_Order());;
         State = RoachState.Dormant;
