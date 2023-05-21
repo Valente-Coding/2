@@ -118,7 +118,12 @@ MonoBehaviour:
   _eating_Time: 5
   _readyToOrderSprite: {fileID: 21300000, guid: 4097c5cbe15f10142ad4674a97c5e983,
     type: 3}
-  _readyToEatSprite: {fileID: 21300000, guid: 9baa6cb261bcabc4cb3173835df93fa7, type: 3}
+  _readyToEatSprite: {fileID: 21300000, guid: 6a89bffa52e4e164a8232cd56e6cc75e, type: 3}
+  _perfectCombinationSprite: {fileID: 21300000, guid: 55404697b349c2e43abbaca07babc6b9,
+    type: 3}
+  _notAsExpectedSprite: {fileID: 21300000, guid: 16c56e302454d014b917e3b20fbe8469,
+    type: 3}
+  _dontLikeItSprite: {fileID: 21300000, guid: c169db179071d2447a101ed63f9c1158, type: 3}
   _deliverFood_CUE: {fileID: 11400000, guid: 19e8d9e37b315714fa36c57fefd54466, type: 2}
   _badFood_CUE: {fileID: 11400000, guid: 1c953ebec33f89a4483fc7db4d303869, type: 2}
   _mad_CUE: {fileID: 11400000, guid: 584b7ed3abc79d749bacd3f4aa1200b0, type: 2}
@@ -184,7 +189,12 @@ MonoBehaviour:
   _eating_Time: 5
   _readyToOrderSprite: {fileID: 21300000, guid: 4097c5cbe15f10142ad4674a97c5e983,
     type: 3}
-  _readyToEatSprite: {fileID: 21300000, guid: 9baa6cb261bcabc4cb3173835df93fa7, type: 3}
+  _readyToEatSprite: {fileID: 21300000, guid: 6a89bffa52e4e164a8232cd56e6cc75e, type: 3}
+  _perfectCombinationSprite: {fileID: 21300000, guid: 55404697b349c2e43abbaca07babc6b9,
+    type: 3}
+  _notAsExpectedSprite: {fileID: 21300000, guid: 16c56e302454d014b917e3b20fbe8469,
+    type: 3}
+  _dontLikeItSprite: {fileID: 21300000, guid: c169db179071d2447a101ed63f9c1158, type: 3}
   _deliverFood_CUE: {fileID: 11400000, guid: 19e8d9e37b315714fa36c57fefd54466, type: 2}
   _badFood_CUE: {fileID: 11400000, guid: 1c953ebec33f89a4483fc7db4d303869, type: 2}
   _mad_CUE: {fileID: 11400000, guid: 584b7ed3abc79d749bacd3f4aa1200b0, type: 2}
@@ -366,7 +376,12 @@ MonoBehaviour:
   _eating_Time: 5
   _readyToOrderSprite: {fileID: 21300000, guid: 4097c5cbe15f10142ad4674a97c5e983,
     type: 3}
-  _readyToEatSprite: {fileID: 21300000, guid: 9baa6cb261bcabc4cb3173835df93fa7, type: 3}
+  _readyToEatSprite: {fileID: 21300000, guid: 6a89bffa52e4e164a8232cd56e6cc75e, type: 3}
+  _perfectCombinationSprite: {fileID: 21300000, guid: 55404697b349c2e43abbaca07babc6b9,
+    type: 3}
+  _notAsExpectedSprite: {fileID: 21300000, guid: 16c56e302454d014b917e3b20fbe8469,
+    type: 3}
+  _dontLikeItSprite: {fileID: 21300000, guid: c169db179071d2447a101ed63f9c1158, type: 3}
   _deliverFood_CUE: {fileID: 11400000, guid: 19e8d9e37b315714fa36c57fefd54466, type: 2}
   _badFood_CUE: {fileID: 11400000, guid: 1c953ebec33f89a4483fc7db4d303869, type: 2}
   _mad_CUE: {fileID: 11400000, guid: 584b7ed3abc79d749bacd3f4aa1200b0, type: 2}
