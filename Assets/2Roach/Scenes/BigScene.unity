@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.36020073, g: 0.34944725, b: 0.4386611, a: 1}
+  m_IndirectSpecularColor: {r: 0.3641577, g: 0.3535246, b: 0.44183728, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2817,11 +2817,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chef
       objectReference: {fileID: 0}
-    - target: {fileID: 2559691378908380835, guid: 3cb458458fe37e64099da9724dc41318,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: e59b13213ed0bbd4b8262e1b77227c72, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cb458458fe37e64099da9724dc41318, type: 3}
 --- !u!1001 &3174040563658158795
@@ -2831,6 +2826,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1174832608}
     m_Modifications:
+    - target: {fileID: 454724018, guid: 0bbbd0eb1ff1a564d9cabd3f528e122c, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6964430528294052397, guid: 0bbbd0eb1ff1a564d9cabd3f528e122c,
         type: 3}
       propertyPath: m_RootOrder
@@ -2890,6 +2889,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Processor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964430528294052400, guid: 0bbbd0eb1ff1a564d9cabd3f528e122c,
+        type: 3}
+      propertyPath: _fryingPS
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6964430528294052400, guid: 0bbbd0eb1ff1a564d9cabd3f528e122c,
         type: 3}
