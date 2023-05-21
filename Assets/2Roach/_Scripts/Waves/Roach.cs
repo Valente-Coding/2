@@ -16,6 +16,7 @@ public class Roach : MonoBehaviour
     [SerializeField]private RoachID _id;
     [SerializeField]private GameObject _model;
     [SerializeField]private SpriteRenderer _icon;
+    [SerializeField]private AlignIngredientsIcons _ingIconsList;
     [SerializeField]private bool _isPlaying;
     
     [Header("Shared Data:")]
@@ -32,6 +33,7 @@ public class Roach : MonoBehaviour
 
     private bool _hasOrdered = false;
     private bool _hasReceivedFood = false;
+    private bool _hasConditionChanged = false;
 
     public RoachID Id { get => _id; }
     public RoachState State 
@@ -77,6 +79,7 @@ public class Roach : MonoBehaviour
         if(_hasOrdered == false)
         {
             _hasOrdered = true;
+            _hasConditionChanged = true;
         }
         else
         {
@@ -92,7 +95,7 @@ public class Roach : MonoBehaviour
         State = RoachState.WaitingToOrder;
         // UI.PopUp order is available
         DisplayIconInBubble(_readyToOrderSprite);
-        yield return StartCoroutine(COR_WaitForTimeOrCondition(_waitingToOrder_Time, _hasOrdered));
+        yield return StartCoroutine(COR_WaitForTimeOrCondition(_waitingToOrder_Time));
         HideIconBubble();
         if(!_hasOrdered)
         {
@@ -101,15 +104,17 @@ public class Roach : MonoBehaviour
         } 
 
         // Show Dish
-        DisplayIconInBubble(_currentOrder.Ingredients[0].Icon);//TODO show all ingredients not only the first one icon
+        //DisplayIconInBubble(_currentOrder.Ingredients[0].Icon);//TODO show all ingredients not only the first one icon
+        _ingIconsList.DisplayIngredientIcons(_currentOrder.Ingredients);
         yield return Yielders.Get(_dishBubbleDuration_Time);
-        HideIconBubble();
+        //HideIconBubble();
+        _ingIconsList.ClearIconsList();
 
         State = RoachState.WaitingForFood;
         // UI.PopUp waiting for food.
         yield return Yielders.Get(2f);//Pop-upDelay
         DisplayIconInBubble(_readyToEatSprite);
-        yield return StartCoroutine(COR_WaitForTimeOrCondition(_waitingForFood_Time, _hasReceivedFood));
+        yield return StartCoroutine(COR_WaitForTimeOrCondition(_waitingForFood_Time));
         HideIconBubble();
         if(!_hasReceivedFood)
         {
@@ -141,6 +146,7 @@ public class Roach : MonoBehaviour
         //Debug.Log(foodStack.StackedIngredients[0] + "IS ZERO");
         
         _hasReceivedFood = true;
+        _hasConditionChanged = true;
 
         var isTheSame = true;
         var containsTheSame = true;
@@ -191,15 +197,17 @@ public class Roach : MonoBehaviour
         }
     }
 
-    private IEnumerator COR_WaitForTimeOrCondition(float waitTime, bool condition)
+    private IEnumerator COR_WaitForTimeOrCondition(float waitTime)
     {
         float elapsedTime = 0f;
 
-        while (!condition && elapsedTime < waitTime)
+        while (!_hasConditionChanged && elapsedTime < waitTime)
         {
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+
+        _hasConditionChanged = false;
     }
 
 
