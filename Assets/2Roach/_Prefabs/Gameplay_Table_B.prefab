@@ -151,18 +151,6 @@ PrefabInstance:
       propertyPath: _model
       value: 
       objectReference: {fileID: 6467814981861715941}
-    - target: {fileID: 1188414070796723051, guid: 52d495f542f0313459404b88367a095a,
-        type: 3}
-      propertyPath: _readyToEatSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: f082e69f825d0aa44b687e592731c0a8,
-        type: 3}
-    - target: {fileID: 1188414070796723051, guid: 52d495f542f0313459404b88367a095a,
-        type: 3}
-      propertyPath: _readyToOrderSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c310213e548788a43a7eb9c7d45d02f1,
-        type: 3}
     - target: {fileID: 1818407161030947925, guid: 52d495f542f0313459404b88367a095a,
         type: 3}
       propertyPath: _tableRoaches.Array.size
@@ -223,18 +211,6 @@ PrefabInstance:
       propertyPath: _model
       value: 
       objectReference: {fileID: 6467814980752975762}
-    - target: {fileID: 6686002117056623974, guid: 52d495f542f0313459404b88367a095a,
-        type: 3}
-      propertyPath: _readyToEatSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: f082e69f825d0aa44b687e592731c0a8,
-        type: 3}
-    - target: {fileID: 6686002117056623974, guid: 52d495f542f0313459404b88367a095a,
-        type: 3}
-      propertyPath: _readyToOrderSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c310213e548788a43a7eb9c7d45d02f1,
-        type: 3}
     - target: {fileID: 7102746952589582995, guid: 52d495f542f0313459404b88367a095a,
         type: 3}
       propertyPath: _id
@@ -250,18 +226,6 @@ PrefabInstance:
       propertyPath: _model
       value: 
       objectReference: {fileID: 6467814982033846615}
-    - target: {fileID: 7102746952589582995, guid: 52d495f542f0313459404b88367a095a,
-        type: 3}
-      propertyPath: _readyToEatSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: f082e69f825d0aa44b687e592731c0a8,
-        type: 3}
-    - target: {fileID: 7102746952589582995, guid: 52d495f542f0313459404b88367a095a,
-        type: 3}
-      propertyPath: _readyToOrderSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c310213e548788a43a7eb9c7d45d02f1,
-        type: 3}
     - target: {fileID: 8390140080506144840, guid: 52d495f542f0313459404b88367a095a,
         type: 3}
       propertyPath: m_IsActive

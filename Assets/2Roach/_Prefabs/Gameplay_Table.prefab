@@ -59,6 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _iconPrefab: {fileID: 1852071803282537695, guid: 07b731988f8368248930648dc6c755d6,
     type: 3}
+  _xOffset: 0.75
 --- !u!1 &381219487239862018
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,8 +116,9 @@ MonoBehaviour:
   _dishBubbleDuration_Time: 4
   _waitingForFood_Time: 30
   _eating_Time: 5
-  _readyToOrderSprite: {fileID: 0}
-  _readyToEatSprite: {fileID: 0}
+  _readyToOrderSprite: {fileID: 21300000, guid: 4097c5cbe15f10142ad4674a97c5e983,
+    type: 3}
+  _readyToEatSprite: {fileID: 21300000, guid: 9baa6cb261bcabc4cb3173835df93fa7, type: 3}
   _state: 0
   _currentOrder: {fileID: 0}
 --- !u!1 &381219487435968674
@@ -175,8 +177,9 @@ MonoBehaviour:
   _dishBubbleDuration_Time: 4
   _waitingForFood_Time: 30
   _eating_Time: 5
-  _readyToOrderSprite: {fileID: 0}
-  _readyToEatSprite: {fileID: 0}
+  _readyToOrderSprite: {fileID: 21300000, guid: 4097c5cbe15f10142ad4674a97c5e983,
+    type: 3}
+  _readyToEatSprite: {fileID: 21300000, guid: 9baa6cb261bcabc4cb3173835df93fa7, type: 3}
   _state: 0
   _currentOrder: {fileID: 0}
 --- !u!1 &381219488175949147
@@ -351,8 +354,9 @@ MonoBehaviour:
   _dishBubbleDuration_Time: 4
   _waitingForFood_Time: 30
   _eating_Time: 5
-  _readyToOrderSprite: {fileID: 0}
-  _readyToEatSprite: {fileID: 0}
+  _readyToOrderSprite: {fileID: 21300000, guid: 4097c5cbe15f10142ad4674a97c5e983,
+    type: 3}
+  _readyToEatSprite: {fileID: 21300000, guid: 9baa6cb261bcabc4cb3173835df93fa7, type: 3}
   _state: 0
   _currentOrder: {fileID: 0}
 --- !u!1 &3068580021217498034
@@ -512,6 +516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _iconPrefab: {fileID: 1852071803282537695, guid: 07b731988f8368248930648dc6c755d6,
     type: 3}
+  _xOffset: 0.75
 --- !u!1 &5532993495022243465
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,6 +674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _iconPrefab: {fileID: 1852071803282537695, guid: 07b731988f8368248930648dc6c755d6,
     type: 3}
+  _xOffset: 0.75
 --- !u!1 &8390140080506144840
 GameObject:
   m_ObjectHideFlags: 0
