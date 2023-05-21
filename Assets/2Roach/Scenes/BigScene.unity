@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.12836623, g: 0.12233702, b: 0.17988805, a: 1}
+  m_IndirectSpecularColor: {r: 0.12724881, g: 0.12121912, b: 0.17882887, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -153,7 +153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &330585544
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1200,6 +1200,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3888028648496957725, guid: fa6d14d9e7895f941b3759216b32dd54,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cdbb9f5044b672744828289453f5d7a4, type: 2}
+    - target: {fileID: 3888028648496957725, guid: fa6d14d9e7895f941b3759216b32dd54,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: c7082df7f704d824d992f01cb2a2e3c7, type: 2}
+    - target: {fileID: 3888028648496957725, guid: fa6d14d9e7895f941b3759216b32dd54,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: c7082df7f704d824d992f01cb2a2e3c7, type: 2}
     - target: {fileID: 5192167538736518567, guid: fa6d14d9e7895f941b3759216b32dd54,
         type: 3}
       propertyPath: _playerControler
@@ -1270,12 +1285,31 @@ PrefabInstance:
       propertyPath: _playerControler
       value: 
       objectReference: {fileID: 73285773}
+    - target: {fileID: 5729970309409110694, guid: fa6d14d9e7895f941b3759216b32dd54,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.559
+      objectReference: {fileID: 0}
+    - target: {fileID: 5729970309409110694, guid: fa6d14d9e7895f941b3759216b32dd54,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.556
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903980294282488819, guid: fa6d14d9e7895f941b3759216b32dd54,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c7082df7f704d824d992f01cb2a2e3c7, type: 2}
+    - target: {fileID: 6903980294282488819, guid: fa6d14d9e7895f941b3759216b32dd54,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: cdbb9f5044b672744828289453f5d7a4, type: 2}
     - target: {fileID: 6903980295301792201, guid: fa6d14d9e7895f941b3759216b32dd54,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: -8067726398312463513, guid: fcb6e04163e5e99469a5a03143c7cd6f,
-        type: 3}
+      objectReference: {fileID: 2100000, guid: a1750811e4f0c41458a48f53a5c7360e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa6d14d9e7895f941b3759216b32dd54, type: 3}
 --- !u!1001 &5237286159268658929
@@ -1358,6 +1392,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Salloon
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874104162530629182, guid: 6584dab45fdd52b4ca488fc00ceb626a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1874104162530629183, guid: 6584dab45fdd52b4ca488fc00ceb626a,
         type: 3}
