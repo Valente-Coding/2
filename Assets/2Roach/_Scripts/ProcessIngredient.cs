@@ -9,6 +9,7 @@ public class ProcessIngredient : MonoBehaviour
     [SerializeField] private InteractTip _interactTip;
     [SerializeField] private Ingredient _currentIngredient;
     [SerializeField] private bool _isProcessing = false;
+    [SerializeField] private GameObject _dingIcon;
     [SerializeField] private SimpleAudioEvent _ding_CUE;
     [SerializeField] private SimpleAudioEvent _place_CUE;
     [SerializeField] private AudioSource _fryingSource;
@@ -55,6 +56,11 @@ public class ProcessIngredient : MonoBehaviour
             _fryingSource.mute = true;
             _ding_CUE?.Play();
             IngredientToProcess = _currentIngredient.AfterProcessIngredient;
+
+            
+            _dingIcon.SetActive(true);
+            yield return new WaitForSeconds(1f);
+            _dingIcon.SetActive(false);
         }
     }
 
