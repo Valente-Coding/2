@@ -29,10 +29,12 @@ public class Stack
         return _stackedIngredients.Count == 0;
     }
 
-    public void CombineStacks(Stack stackToCombine) {
+    public bool CombineStacks(Stack stackToCombine) {
         foreach (Ingredient ing in stackToCombine.StackedIngredients) {
             AddIngredientToCurrentStack(ing);
         }
+
+        return true;
     }
 
     public void AddIngredientToCurrentStack(Ingredient newIngredient) {
