@@ -53,6 +53,8 @@ MonoBehaviour:
   _cam_Kitchen: {fileID: 0}
   _cam_Hole: {fileID: 0}
   _cam_Saloon: {fileID: 0}
+  _pop_CUE: {fileID: 11400000, guid: 331328d0a2e869b4a856cb1fc7221150, type: 2}
+  _whistle_CUE: {fileID: 11400000, guid: f8e87c9d4e45420469f902c558b9ed32, type: 2}
 --- !u!1 &6628846015241236959
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,9 +100,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waves:
+  - {fileID: 11400000, guid: 7401912f2d746f34e9a2db4f5f1ed9b4, type: 2}
   - {fileID: 11400000, guid: 7ab130ac9cd50ed42b0d0e914e648747, type: 2}
   - {fileID: 11400000, guid: 3ce83b5ae5a2a6e4aa3dbb7d9db34876, type: 2}
   - {fileID: 11400000, guid: 9aa7250b5d870874ba11d287700f4759, type: 2}
+  - {fileID: 11400000, guid: 43071ff06c6aeca48a80a775bc731219, type: 2}
+  - {fileID: 11400000, guid: be1919ff806e29544961d9bce42f6e15, type: 2}
+  - {fileID: 11400000, guid: 10a75a541093ca64cb363832002d4960, type: 2}
+  - {fileID: 11400000, guid: dcd0025d273ca6341af1467fc10b09de, type: 2}
+  - {fileID: 11400000, guid: a2e91977380fc6c47919032cdeff8893, type: 2}
+  - {fileID: 11400000, guid: 40efae1cedd5b8644a4e9e763d8f3f05, type: 2}
   _roaches:
   - {fileID: 0}
   - {fileID: 0}
