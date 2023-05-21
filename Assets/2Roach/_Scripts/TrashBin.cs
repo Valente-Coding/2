@@ -30,6 +30,7 @@ public class TrashBin : MonoBehaviour
 
     private void OnTriggerExit(Collider other) {
         if (other.tag == "Player") {
+            _canInteract = false;
             _tipIcon.gameObject.SetActive(false);
         }
     }
