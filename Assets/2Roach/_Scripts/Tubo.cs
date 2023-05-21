@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Tubo : MonoBehaviour
 {
+    [SerializeField] private List<Ingredient> _ingredientsToSpawn;
+
     public static Tubo instance;
 
     void Awake()
@@ -22,12 +24,24 @@ public class Tubo : MonoBehaviour
     private List<Stack> _stackQueue;
 
     public void PickupFirstStackInQueue(Stack grabber) {
-        if (_stackQueue.Count <= 0 || grabber == null) return;
+        if (grabber == null) return;
 
-        grabber.CombineStacks(_stackQueue[0]);
+        if (_stackQueue.Count != 0 )
+            grabber.CombineStacks(_stackQueue[0]);
+        else 
+        {
+            Stack newStack = new Stack();
+            newStack.StackedIngredients.Add(GetRandomIngredient());
+            grabber.CombineStacks(newStack);
+        }
+
 
         _stackQueue.RemoveAt(0);
-        
+    }
+
+    private Ingredient GetRandomIngredient()
+    {
+        return _ingredientsToSpawn[Random.Range(0,_ingredientsToSpawn.Count -1)];
     }
 
     public void PlaceStackInQueue(Stack placer) {

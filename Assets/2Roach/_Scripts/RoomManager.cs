@@ -50,6 +50,7 @@ public class RoomManager : MonoBehaviour
 
     private void SwitchRoom()
     {
+        if(!_player.CurrentStack.IsEmpty()) return;
         switch (_state)
         {               
             case RoomState.Kitchen:
