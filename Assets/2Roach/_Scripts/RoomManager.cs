@@ -76,7 +76,7 @@ public class RoomManager : MonoBehaviour
         //Camera Magic
         //Vignette Magic
         _whistle_CUE.Play();
-        yield return Yielders.Get(2f);
+        yield return Yielders.Get(1f);
         _pop_CUE.Play();
         _player.Switch(RoomState.Saloon);
         ActivateCamera(VCameras.Saloon);
@@ -91,10 +91,11 @@ public class RoomManager : MonoBehaviour
         //Camera Magic
         //Vignette Magic
         _whistle_CUE.Play();
-        yield return Yielders.Get(2f);
+        yield return Yielders.Get(1f);
          _pop_CUE.Play();
         _player.Switch(RoomState.Kitchen);
          ActivateCamera(VCameras.Kitchen);
+         
         _input.EnableGameplayInput();
     }
 
@@ -106,7 +107,7 @@ public class RoomManager : MonoBehaviour
     }
     private void OnStateChange()
     {
-        //Debug.Log("Play Common FX here!!!");
+       MusicPlayer.instance.PlayNextSong();
     }
 
     private void ActivateCamera(VCameras camToActivate)
