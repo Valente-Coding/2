@@ -67,6 +67,7 @@ MonoBehaviour:
   _ding_CUE: {fileID: 11400000, guid: b9f424a65bd1e45429d79cd97cba361f, type: 2}
   _place_CUE: {fileID: 11400000, guid: b855bd92577d444448d84f7e19118202, type: 2}
   _fryingSource: {fileID: 3634558705612616416}
+  _fryingPS: {fileID: 0}
 --- !u!82 &3634558705612616416
 AudioSource:
   m_ObjectHideFlags: 0

@@ -24,10 +24,11 @@ public class ProcessIngredient : MonoBehaviour
         if (newInput == true && _canInteract == true && _isProcessing == false && _currentIngredient == null && _playerControler.CurrentStack.StackedIngredients.Count == 1) {
             IngredientToProcess = _playerControler.CurrentStack.StackedIngredients[0];
             _place_CUE.Play();
-            _fryingSource.mute = false;
             _playerControler.CurrentStack.ResetStack();
         }
-        else if (newInput == true && _canInteract == true && _currentIngredient != null) {
+        else if (newInput == true && _canInteract == true && _currentIngredient != null) 
+        {
+            _fryingSource.mute = true;
             _playerControler.CurrentStack.AddIngredientToCurrentStack(_currentIngredient);
             _currentIngredient = null;
         }
@@ -39,14 +40,19 @@ public class ProcessIngredient : MonoBehaviour
             StartCoroutine(Process());
     }
 
-    private IEnumerator Process() {
+    private IEnumerator Process() 
+    {
+        _fryingSource.mute = false;
+
         _isProcessing = true;
         yield return new WaitForSeconds(_currentIngredient.TimeToProcess);
         _isProcessing = false;
+        
+
         if (_currentIngredient != null)
         {
-            _ding_CUE?.Play();
             _fryingSource.mute = true;
+            _ding_CUE?.Play();
             IngredientToProcess = _currentIngredient.AfterProcessIngredient;
         }
     }
