@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1938873886462453119}
   - component: {fileID: 1938873886462453089}
   - component: {fileID: 1938873886462453118}
+  - component: {fileID: 4698578007164478542}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -63,7 +64,19 @@ MonoBehaviour:
   _onSpawn_CUE: {fileID: 11400000, guid: 55436b8651da1ed41a79b935182b0c01, type: 2}
   _input: {fileID: 11400000, guid: 6358288955754b245b578ca3e8bd2282, type: 2}
   _playerController: {fileID: 0}
-  _icon: {fileID: 608317326566574022}
+--- !u!114 &4698578007164478542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938873886462453116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea1e8c7ad48413e4e927d611943aefae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tipIcon: {fileID: 608317326566574022}
 --- !u!1 &5365559960439877055
 GameObject:
   m_ObjectHideFlags: 0
