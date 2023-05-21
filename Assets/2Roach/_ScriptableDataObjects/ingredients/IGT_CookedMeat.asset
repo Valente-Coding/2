@@ -15,6 +15,7 @@ MonoBehaviour:
   _myType: 3
   _prefModel: {fileID: 1865691583626014952, guid: 411b9db4af0a4b547a4bddd57bb506a4,
     type: 3}
+  _icon: {fileID: 21300000, guid: eeab78ade60768b4ab419887da20f358, type: 3}
   _timeToProcess: 3
   _afterProcessIngredient: {fileID: 11400000, guid: d807779b534aa17499e644104dca35b8,
     type: 2}

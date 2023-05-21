@@ -13,17 +13,18 @@ public enum RoachState
 
 public class Roach : MonoBehaviour
 {
-    [ContextMenu("GetModel")]
-    private void GetModel() => _model = transform.GetChild(0).gameObject;
-
     [SerializeField]private RoachID _id;
     [SerializeField]private GameObject _model;
+    [SerializeField]private SpriteRenderer _icon;
     [SerializeField]private bool _isPlaying;
     
     [Header("Shared Data:")]
     [SerializeField] private float _waitingToOrder_Time;
+    [SerializeField] private float _dishBubbleDuration_Time = 4f;
     [SerializeField] private float _waitingForFood_Time;
     [SerializeField] private float _eating_Time;
+    [SerializeField] private Sprite _readyToOrderSprite;
+    [SerializeField] private Sprite _readyToEatSprite;
 
     [Header("Debug:")]
     [SerializeField]private RoachState _state;
@@ -50,23 +51,32 @@ public class Roach : MonoBehaviour
 
     public void InitOrder(Order order)
     {
-        _isPlaying= true;
-        _model.gameObject.SetActive(true);
+        HideIconBubble();// start false.
         _hasOrdered = false;
         _hasReceivedFood = false;
 
+        _isPlaying= true;
+        _model.gameObject.SetActive(true);
+
         _currentOrder = order;
         StartCoroutine(COR_Order());
-        Debug.Log(_id + " will order " + order.name);
+        //Debug.Log(_id + " will order " + order.name);
     }
+
+    private void DisplayIconInBubble(Sprite icon)
+    {
+        _icon.sprite = icon;
+        _icon.gameObject.SetActive(true);
+    }
+
+    private void HideIconBubble() => _icon.gameObject.SetActive(false);
 
 
     public void TakeOrder()
     {
-        if(_hasOrdered ==false)
+        if(_hasOrdered == false)
         {
             _hasOrdered = true;
-        //UI pop-up with wanted FOOD
         }
         else
         {
@@ -77,21 +87,30 @@ public class Roach : MonoBehaviour
     private IEnumerator COR_Order()
     {
         State = RoachState.Choosing;
-    
         yield return Yielders.Get(_currentOrder.Delay);
 
         State = RoachState.WaitingToOrder;
         // UI.PopUp order is available
-        yield return StartCoroutine(WaitForTimeOrCondition(_waitingToOrder_Time, _hasOrdered));
+        DisplayIconInBubble(_readyToOrderSprite);
+        yield return StartCoroutine(COR_WaitForTimeOrCondition(_waitingToOrder_Time, _hasOrdered));
+        HideIconBubble();
         if(!_hasOrdered)
         {
             FailOrder();
             yield break;
         } 
-   
+
+        // Show Dish
+        DisplayIconInBubble(_currentOrder.Ingredients[0].Icon);//TODO show all ingredients not only the first one icon
+        yield return Yielders.Get(_dishBubbleDuration_Time);
+        HideIconBubble();
+
         State = RoachState.WaitingForFood;
         // UI.PopUp waiting for food.
-        yield return StartCoroutine(WaitForTimeOrCondition(_waitingForFood_Time, _hasReceivedFood));
+        yield return Yielders.Get(2f);//Pop-upDelay
+        DisplayIconInBubble(_readyToEatSprite);
+        yield return StartCoroutine(COR_WaitForTimeOrCondition(_waitingForFood_Time, _hasReceivedFood));
+        HideIconBubble();
         if(!_hasReceivedFood)
         {
             FailOrder();
@@ -100,7 +119,6 @@ public class Roach : MonoBehaviour
 
         State = RoachState.IsEating;
         yield return Yielders.Get(_currentOrder.EatTime);
-
         CompletedOrder();
     }
 
@@ -146,26 +164,24 @@ public class Roach : MonoBehaviour
         if(isTheSame)
         {
             Debug.Log("Stack is PERFECT");
-            //GameManager.Score.Add(MaxPoints)
+            GameManager.instance.Score.Add(20f);//TODO Balance
         }
         else
         {
             if(containsTheSame)
             {
             Debug.Log("Its FOOD I Guess");
-
-                //GameManager.Score.Add(HalfPoints)
+            GameManager.instance.Score.Add(10f);//TODO Balance
             }
             else
             {
             Debug.Log("Not the same Ingredients");
-
-                //GameManager.Score.Add(Almost No Points)
+            GameManager.instance.Score.Add(1f);//TODO Balance
             }
         }
     }
 
-    private IEnumerator WaitForTimeOrCondition(float waitTime, bool condition)
+    private IEnumerator COR_WaitForTimeOrCondition(float waitTime, bool condition)
     {
         float elapsedTime = 0f;
 
