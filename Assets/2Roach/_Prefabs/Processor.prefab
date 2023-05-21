@@ -161,6 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerControler: {fileID: 0}
   _input: {fileID: 11400000, guid: 6358288955754b245b578ca3e8bd2282, type: 2}
+  _interactTip: {fileID: 7486852438343836014}
   _currentIngredient: {fileID: 0}
   _isProcessing: 0
   _ding_CUE: {fileID: 11400000, guid: b9f424a65bd1e45429d79cd97cba361f, type: 2}
@@ -275,6 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tipIcon: {fileID: 4502335239691937182}
+  _isAutomatic: 0
 --- !u!1001 &3174040563906161749
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -119,11 +119,11 @@ MonoBehaviour:
   _readyToOrderSprite: {fileID: 21300000, guid: 4097c5cbe15f10142ad4674a97c5e983,
     type: 3}
   _readyToEatSprite: {fileID: 21300000, guid: 9baa6cb261bcabc4cb3173835df93fa7, type: 3}
-  _deliverFood_CUE: {fileID: 0}
-  _badFood_CUE: {fileID: 0}
-  _mad_CUE: {fileID: 0}
-  _happy_CUE: {fileID: 0}
-  _bubble_CUE: {fileID: 0}
+  _deliverFood_CUE: {fileID: 11400000, guid: 19e8d9e37b315714fa36c57fefd54466, type: 2}
+  _badFood_CUE: {fileID: 11400000, guid: 1c953ebec33f89a4483fc7db4d303869, type: 2}
+  _mad_CUE: {fileID: 11400000, guid: 584b7ed3abc79d749bacd3f4aa1200b0, type: 2}
+  _happy_CUE: {fileID: 11400000, guid: 54c6119297342e3459468e1720d82a19, type: 2}
+  _bubble_CUE: {fileID: 11400000, guid: 2906a60c5bdf7c2439e51f82341a0980, type: 2}
   _state: 0
   _currentOrder: {fileID: 0}
 --- !u!1 &381219487435968674
@@ -185,11 +185,11 @@ MonoBehaviour:
   _readyToOrderSprite: {fileID: 21300000, guid: 4097c5cbe15f10142ad4674a97c5e983,
     type: 3}
   _readyToEatSprite: {fileID: 21300000, guid: 9baa6cb261bcabc4cb3173835df93fa7, type: 3}
-  _deliverFood_CUE: {fileID: 0}
-  _badFood_CUE: {fileID: 0}
-  _mad_CUE: {fileID: 0}
-  _happy_CUE: {fileID: 0}
-  _bubble_CUE: {fileID: 0}
+  _deliverFood_CUE: {fileID: 11400000, guid: 19e8d9e37b315714fa36c57fefd54466, type: 2}
+  _badFood_CUE: {fileID: 11400000, guid: 1c953ebec33f89a4483fc7db4d303869, type: 2}
+  _mad_CUE: {fileID: 11400000, guid: 584b7ed3abc79d749bacd3f4aa1200b0, type: 2}
+  _happy_CUE: {fileID: 11400000, guid: 54c6119297342e3459468e1720d82a19, type: 2}
+  _bubble_CUE: {fileID: 11400000, guid: 2906a60c5bdf7c2439e51f82341a0980, type: 2}
   _state: 0
   _currentOrder: {fileID: 0}
 --- !u!1 &381219488175949147
@@ -367,11 +367,11 @@ MonoBehaviour:
   _readyToOrderSprite: {fileID: 21300000, guid: 4097c5cbe15f10142ad4674a97c5e983,
     type: 3}
   _readyToEatSprite: {fileID: 21300000, guid: 9baa6cb261bcabc4cb3173835df93fa7, type: 3}
-  _deliverFood_CUE: {fileID: 0}
-  _badFood_CUE: {fileID: 0}
-  _mad_CUE: {fileID: 0}
-  _happy_CUE: {fileID: 0}
-  _bubble_CUE: {fileID: 0}
+  _deliverFood_CUE: {fileID: 11400000, guid: 19e8d9e37b315714fa36c57fefd54466, type: 2}
+  _badFood_CUE: {fileID: 11400000, guid: 1c953ebec33f89a4483fc7db4d303869, type: 2}
+  _mad_CUE: {fileID: 11400000, guid: 584b7ed3abc79d749bacd3f4aa1200b0, type: 2}
+  _happy_CUE: {fileID: 11400000, guid: 54c6119297342e3459468e1720d82a19, type: 2}
+  _bubble_CUE: {fileID: 11400000, guid: 2906a60c5bdf7c2439e51f82341a0980, type: 2}
   _state: 0
   _currentOrder: {fileID: 0}
 --- !u!1 &3068580021217498034

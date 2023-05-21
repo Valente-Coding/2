@@ -6,6 +6,7 @@ public class ProcessIngredient : MonoBehaviour
 {
     [SerializeField] private PlayerController _playerControler;
     [SerializeField] private InputReader _input;
+    [SerializeField] private InteractTip _interactTip;
     [SerializeField] private Ingredient _currentIngredient;
     [SerializeField] private bool _isProcessing = false;
     [SerializeField] private SimpleAudioEvent _ding_CUE;
@@ -59,13 +60,16 @@ public class ProcessIngredient : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Player") {
+            if(!_playerControler.CurrentStack.IsEmpty()) _interactTip.EnableTip();
             _canInteract = true;
+
         }
     }
 
     private void OnTriggerExit(Collider other) {
         if (other.tag == "Player") {
             _canInteract = false;
+            _interactTip.DisableTip();
         }
     }
 }
