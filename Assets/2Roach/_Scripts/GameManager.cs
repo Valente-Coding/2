@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] RoomState _gameState;
     public RoomState GameState { get => _gameState;  }
    
-   public Score Score { get => _score;  }
+    public Score Score { get => _score;  }
     private Score _score = new Score();
 
     public static GameManager instance;

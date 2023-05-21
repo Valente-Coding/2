@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.11955797, g: 0.11347569, b: 0.17168806, a: 1}
+  m_IndirectSpecularColor: {r: 0.388182, g: 0.37862712, b: 0.4593724, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3189,6 +3189,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomState
       objectReference: {fileID: 0}
+    - target: {fileID: 6628846015241236957, guid: a10e4ec70f3e0c443a3abe399b06d5f3,
+        type: 3}
+      propertyPath: _waves.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628846015241236957, guid: a10e4ec70f3e0c443a3abe399b06d5f3,
+        type: 3}
+      propertyPath: _waves.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7401912f2d746f34e9a2db4f5f1ed9b4,
+        type: 2}
+    - target: {fileID: 6628846015241236957, guid: a10e4ec70f3e0c443a3abe399b06d5f3,
+        type: 3}
+      propertyPath: _waves.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7ab130ac9cd50ed42b0d0e914e648747,
+        type: 2}
+    - target: {fileID: 6628846015241236957, guid: a10e4ec70f3e0c443a3abe399b06d5f3,
+        type: 3}
+      propertyPath: _waves.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3ce83b5ae5a2a6e4aa3dbb7d9db34876,
+        type: 2}
+    - target: {fileID: 6628846015241236957, guid: a10e4ec70f3e0c443a3abe399b06d5f3,
+        type: 3}
+      propertyPath: _waves.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9aa7250b5d870874ba11d287700f4759,
+        type: 2}
     - target: {fileID: 6628846015241236957, guid: a10e4ec70f3e0c443a3abe399b06d5f3,
         type: 3}
       propertyPath: _roaches.Array.data[0]
