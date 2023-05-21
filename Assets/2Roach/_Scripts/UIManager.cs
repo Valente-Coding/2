@@ -34,7 +34,6 @@ public class UIManager : MonoBehaviour
     ///
     public void DisplayIntro()
     {
-        Debug.Log("Intro");
         _introStep = 0;
         _input.InteractCanceledEvent += StepIntro;
         _introPanel.gameObject.SetActive(true);
@@ -59,6 +58,7 @@ public class UIManager : MonoBehaviour
     {
        _input.InteractCanceledEvent -= StepIntro;
        _introPanel.gameObject.SetActive(false);
+       DisplayAlertMsg("Press start/enter to get to the saloon",5f);
     }
 
 ///
@@ -72,14 +72,19 @@ public class UIManager : MonoBehaviour
     {
         _alertPanel.gameObject.SetActive(true);
         yield return Yielders.Get(duration);
-        _alertTxt.text = "!!";
-        yield return Yielders.Get(1.5f);
         _alertPanel.gameObject.SetActive(false);
     }
 ///
     public void DisplayScore()
     {
+        _input.InteractCanceledEvent += Leave;
         _scoreTxt.text = GameManager.instance.Score.TotalScore.ToString();
         _scorePanel.gameObject.SetActive(true);
+    }
+
+    private void Leave()
+    {
+        _input.InteractCanceledEvent -= Leave;
+        GameManager.instance.SceneLoader.LoadNewScene("Menu");
     }
 }
