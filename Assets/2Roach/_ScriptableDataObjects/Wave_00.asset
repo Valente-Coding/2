@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94d2acab2488fe54fa1534811a823087, type: 3}
+  m_Name: Wave_00
+  m_EditorClassIdentifier: 
+  _name: Tomatooo
+  _description: 
+  _restDurationBeforeWave: 5
+  _extraDurationWindow: 2
+  _orders:
+  - _roachId: 2
+    _order: {fileID: 11400000, guid: c3c1f759430e7dd41bd0b7b0af994912, type: 2}
