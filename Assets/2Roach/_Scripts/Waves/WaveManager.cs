@@ -69,7 +69,7 @@ public class WaveManager : MonoBehaviour
     {
         while(AllRoachesCompletedOrFailed() == false)
         {
-            Debug.Log("Check!");
+            //Debug.Log("Check!");
             yield return Yielders.Get(1.5f);
         }
     }

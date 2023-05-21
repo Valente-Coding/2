@@ -16,7 +16,7 @@ public class Stack
     public float StackSpeedMultiplier { get => _stackSpeedMultiplier; }
 
     public void ResetStack() {
-        _stackedIngredients = new List<Ingredient>();
+        _stackedIngredients.Clear();
         
         foreach (Transform ingredientGO in _stackHolder) {
             Object.Destroy(ingredientGO.gameObject);
@@ -45,7 +45,8 @@ public class Stack
         
         if (_stackHolder.childCount > 1) {
             Transform lastChild = _stackHolder.GetChild(_stackHolder.childCount-2);
-            newIngredientGO.transform.localPosition = new Vector3(0, lastChild.localPosition.y + lastChild.localScale.y + newIngredientGO.transform.localScale.y, 0);
+            newIngredientGO.transform.localPosition = new Vector3(0, lastChild.localPosition.y + .15f, 0);
+            //newIngredientGO.transform.localPosition = new Vector3(0, lastChild.localPosition.y + lastChild.localScale.y + newIngredientGO.transform.localScale.y, 0);
         } else {
             newIngredientGO.transform.localPosition = new Vector3(0, newIngredientGO.transform.localScale.y, 0);
         }
