@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94d2acab2488fe54fa1534811a823087, type: 3}
-  m_Name: Wave_00
+  m_Name: Wave_05
   m_EditorClassIdentifier: 
-  _name: Tomatooo
+  _name: Raw Meat
   _description: 
-  _restDurationBeforeWave: 1
+  _restDurationBeforeWave: 5
   _extraDurationWindow: 2
   _orders:
-  - _roachId: 2
-    _order: {fileID: 11400000, guid: c3c1f759430e7dd41bd0b7b0af994912, type: 2}
+  - _roachId: 5
+    _order: {fileID: 11400000, guid: b83c5a0762616fa458e60865a3de987f, type: 2}
+  - _roachId: 6
+    _order: {fileID: 11400000, guid: 95b55658096173a4f9179b1ae0f82768, type: 2}

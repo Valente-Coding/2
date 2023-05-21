@@ -9,13 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94d2acab2488fe54fa1534811a823087, type: 3}
-  m_Name: Wave_00
+  m_Script: {fileID: 11500000, guid: ead22f52be2354847a8adad15b947316, type: 3}
+  m_Name: Order_Chesse
   m_EditorClassIdentifier: 
-  _name: Tomatooo
+  _name: 
   _description: 
-  _restDurationBeforeWave: 1
-  _extraDurationWindow: 2
-  _orders:
-  - _roachId: 2
-    _order: {fileID: 11400000, guid: c3c1f759430e7dd41bd0b7b0af994912, type: 2}
+  _ingredients:
+  - {fileID: 11400000, guid: be58ee584ef8ab841a3f640b8b1dcf2a, type: 2}
+  _delay: 2
+  _eatTime: 2

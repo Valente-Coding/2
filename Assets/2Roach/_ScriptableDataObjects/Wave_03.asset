@@ -17,9 +17,9 @@ MonoBehaviour:
   _restDurationBeforeWave: 5
   _extraDurationWindow: 2
   _orders:
-  - _roachId: 2
+  - _roachId: 0
     _order: {fileID: 11400000, guid: 9bf15008b1edc9a41ad1a4876531683a, type: 2}
-  - _roachId: 5
-    _order: {fileID: 11400000, guid: 560a00ac781882048a07370112355e19, type: 2}
+  - _roachId: 4
+    _order: {fileID: 11400000, guid: 554a38850f7f3ad478cef1bf8fe81316, type: 2}
   - _roachId: 6
-    _order: {fileID: 11400000, guid: 08b57193627884645b4a46464ee1d57a, type: 2}
+    _order: {fileID: 11400000, guid: c3c1f759430e7dd41bd0b7b0af994912, type: 2}

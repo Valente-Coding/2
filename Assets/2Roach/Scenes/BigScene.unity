@@ -38,8 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.36446303, g: 0.35393545, b: 0.44170043, a: 1}
-  m_IndirectSpecularColor: {r: 0.3699287, g: 0.35953334, b: 0.4462356, a: 1}
+  m_IndirectSpecularColor: {r: 0.3634267, g: 0.35286346, b: 0.44095406, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2713,7 +2712,7 @@ PrefabInstance:
     - target: {fileID: 6628846015241236957, guid: a10e4ec70f3e0c443a3abe399b06d5f3,
         type: 3}
       propertyPath: _waves.Array.size
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6628846015241236957, guid: a10e4ec70f3e0c443a3abe399b06d5f3,
         type: 3}
@@ -2738,6 +2737,42 @@ PrefabInstance:
       propertyPath: _waves.Array.data[3]
       value: 
       objectReference: {fileID: 11400000, guid: 9aa7250b5d870874ba11d287700f4759,
+        type: 2}
+    - target: {fileID: 6628846015241236957, guid: a10e4ec70f3e0c443a3abe399b06d5f3,
+        type: 3}
+      propertyPath: _waves.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: be1919ff806e29544961d9bce42f6e15,
+        type: 2}
+    - target: {fileID: 6628846015241236957, guid: a10e4ec70f3e0c443a3abe399b06d5f3,
+        type: 3}
+      propertyPath: _waves.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 43071ff06c6aeca48a80a775bc731219,
+        type: 2}
+    - target: {fileID: 6628846015241236957, guid: a10e4ec70f3e0c443a3abe399b06d5f3,
+        type: 3}
+      propertyPath: _waves.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 10a75a541093ca64cb363832002d4960,
+        type: 2}
+    - target: {fileID: 6628846015241236957, guid: a10e4ec70f3e0c443a3abe399b06d5f3,
+        type: 3}
+      propertyPath: _waves.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: dcd0025d273ca6341af1467fc10b09de,
+        type: 2}
+    - target: {fileID: 6628846015241236957, guid: a10e4ec70f3e0c443a3abe399b06d5f3,
+        type: 3}
+      propertyPath: _waves.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: a2e91977380fc6c47919032cdeff8893,
+        type: 2}
+    - target: {fileID: 6628846015241236957, guid: a10e4ec70f3e0c443a3abe399b06d5f3,
+        type: 3}
+      propertyPath: _waves.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 40efae1cedd5b8644a4e9e763d8f3f05,
         type: 2}
     - target: {fileID: 6628846015241236957, guid: a10e4ec70f3e0c443a3abe399b06d5f3,
         type: 3}
