@@ -96,7 +96,6 @@ public class RoomManager : MonoBehaviour
     }
     private void OnStateChange()
     {
-       MusicPlayer.instance.PlayNextSong();
         //Debug.Log("Play Common FX here!!!");
     }
 
