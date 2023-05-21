@@ -5,10 +5,11 @@ using UnityEngine;
 public class IngredientSpawner : MonoBehaviour
 {
     [SerializeField] private Ingredient _ingredientToSpawn;
-    [SerializeField] private SimpleAudioEvent _onSpawnCue;
+    [SerializeField] private SimpleAudioEvent _onSpawn_CUE;
     [SerializeField] private InputReader _input;
-    [SerializeField] private PlayerController _playerControler;
+    [SerializeField] private PlayerController _playerController;
     [SerializeField] private SpriteRenderer _icon;
+
 
     private bool _canInteract = false;
 
@@ -20,8 +21,8 @@ public class IngredientSpawner : MonoBehaviour
     
     private void InteractWithSpawner(bool newInput) {
         if (newInput == true && _canInteract == true) {
-            _playerControler.CurrentStack.AddIngredientToCurrentStack(_ingredientToSpawn);
-            _onSpawnCue?.Play();
+            _playerController.CurrentStack.AddIngredientToCurrentStack(_ingredientToSpawn);
+            _onSpawn_CUE?.Play();
         }
     } 
 

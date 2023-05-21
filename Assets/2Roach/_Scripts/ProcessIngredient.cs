@@ -8,6 +8,9 @@ public class ProcessIngredient : MonoBehaviour
     [SerializeField] private InputReader _input;
     [SerializeField] private Ingredient _currentIngredient;
     [SerializeField] private bool _isProcessing = false;
+    [SerializeField] private SimpleAudioEvent _ding_CUE;
+    [SerializeField] private SimpleAudioEvent _place_CUE;
+    [SerializeField] private AudioSource _fryingSource;
 
     private bool _canInteract = false;
 
@@ -20,7 +23,8 @@ public class ProcessIngredient : MonoBehaviour
     private void InteractWithTool(bool newInput) {
         if (newInput == true && _canInteract == true && _isProcessing == false && _currentIngredient == null && _playerControler.CurrentStack.StackedIngredients.Count == 1) {
             IngredientToProcess = _playerControler.CurrentStack.StackedIngredients[0];
-            
+            _place_CUE.Play();
+            _fryingSource.mute = false;
             _playerControler.CurrentStack.ResetStack();
         }
         else if (newInput == true && _canInteract == true && _currentIngredient != null) {
@@ -40,7 +44,11 @@ public class ProcessIngredient : MonoBehaviour
         yield return new WaitForSeconds(_currentIngredient.TimeToProcess);
         _isProcessing = false;
         if (_currentIngredient != null)
+        {
+            _ding_CUE?.Play();
+            _fryingSource.mute = true;
             IngredientToProcess = _currentIngredient.AfterProcessIngredient;
+        }
     }
 
     private void OnTriggerEnter(Collider other) {
