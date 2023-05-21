@@ -15,7 +15,7 @@ public class IngredientSpawner : MonoBehaviour
 
     private void Start() {
         _input.InteractEvent += InteractWithSpawner;
-        _icon.sprite = _ingredientToSpawn.Icon;
+        //_icon.sprite = _ingredientToSpawn.Icon;
         _icon.gameObject.SetActive(false);
     }
     
