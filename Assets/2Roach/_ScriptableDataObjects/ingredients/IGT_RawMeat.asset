@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8fafbf34d80e8b74988841904866ac37, type: 3}
-  m_Name: IGT_BurntMeat
+  m_Name: IGT_RawMeat
   m_EditorClassIdentifier: 
-  _myType: 4
-  _prefModel: {fileID: 4990089914034880055, guid: 7635f0dd8d6805d41b59747e043af8a8,
+  _myType: 2
+  _prefModel: {fileID: 4378091827787325442, guid: be416c54a1b474b42914cb748207d77b,
     type: 3}
+  _icon: {fileID: 21300000, guid: 0ccc508108fa6ed4fa11b4a467d7f609, type: 3}
   _timeToProcess: 3
-  _afterProcessIngredient: {fileID: 0}
+  _afterProcessIngredient: {fileID: 11400000, guid: 81d2e074c5cbb1b47ab1b1dcf5eca219,
+    type: 2}
   _carrySpeedMultiplier: 0.8
