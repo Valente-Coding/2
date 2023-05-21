@@ -10,14 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94d2acab2488fe54fa1534811a823087, type: 3}
-  m_Name: Wave_01
+  m_Name: Wave_Single
   m_EditorClassIdentifier: 
-  _name: Raw Meat
+  _name: SingleItems
   _description: 
   _restDurationBeforeWave: 5
   _extraDurationWindow: 2
   _orders:
-  - _roachId: 2
-    _order: {fileID: 11400000, guid: 554a38850f7f3ad478cef1bf8fe81316, type: 2}
+  - _roachId: 0
+    _order: {fileID: 11400000, guid: c3c1f759430e7dd41bd0b7b0af994912, type: 2}
   - _roachId: 1
-    _order: {fileID: 11400000, guid: 9bf15008b1edc9a41ad1a4876531683a, type: 2}
+    _order: {fileID: 11400000, guid: c3c1f759430e7dd41bd0b7b0af994912, type: 2}
+  - _roachId: 2
+    _order: {fileID: 11400000, guid: c3c1f759430e7dd41bd0b7b0af994912, type: 2}
+  - _roachId: 6
+    _order: {fileID: 11400000, guid: 554a38850f7f3ad478cef1bf8fe81316, type: 2}
+  - _roachId: 7
+    _order: {fileID: 11400000, guid: 554a38850f7f3ad478cef1bf8fe81316, type: 2}
+  - _roachId: 8
+    _order: {fileID: 11400000, guid: 554a38850f7f3ad478cef1bf8fe81316, type: 2}

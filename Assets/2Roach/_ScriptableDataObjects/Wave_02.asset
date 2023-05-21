@@ -20,4 +20,4 @@ MonoBehaviour:
   - _roachId: 1
     _order: {fileID: 11400000, guid: 560a00ac781882048a07370112355e19, type: 2}
   - _roachId: 7
-    _order: {fileID: 11400000, guid: 560a00ac781882048a07370112355e19, type: 2}
+    _order: {fileID: 11400000, guid: 9bf15008b1edc9a41ad1a4876531683a, type: 2}
