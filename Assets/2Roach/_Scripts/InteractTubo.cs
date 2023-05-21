@@ -18,7 +18,9 @@ public class InteractTubo : MonoBehaviour
         if (newInput == true && _canInteract == true && !_playerControler.CurrentStack.IsEmpty() && !_grab) {
             Tubo.instance.PlaceStackInQueue(_playerControler.CurrentStack);
         }
-        else if (newInput == true && _canInteract == true && _playerControler.CurrentStack.IsEmpty() && _grab) {
+        else if (newInput == true && _canInteract == true && _playerControler.CurrentStack.IsEmpty() && _grab) 
+        {
+            
             Tubo.instance.PickupFirstStackInQueue(_playerControler.CurrentStack);
         }
     }

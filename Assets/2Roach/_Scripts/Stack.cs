@@ -50,7 +50,7 @@ public class Stack
             newIngredientGO.transform.localPosition = new Vector3(0, lastChild.localPosition.y + .15f, 0);
             //newIngredientGO.transform.localPosition = new Vector3(0, lastChild.localPosition.y + lastChild.localScale.y + newIngredientGO.transform.localScale.y, 0);
         } else {
-            newIngredientGO.transform.localPosition = new Vector3(0, newIngredientGO.transform.localScale.y, 0);
+            newIngredientGO.transform.localPosition = new Vector3(0, 0, 0);
         }
 
         UpdateSpeed();
