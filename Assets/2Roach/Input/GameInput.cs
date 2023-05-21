@@ -151,7 +151,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
                     ""id"": ""e133bef5-a4eb-4d2a-b223-2a2c823503de"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""NormalizeVector2"",
                     ""groups"": ""default"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
@@ -303,7 +303,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3fe87bfd-3161-4188-8e92-f10f75f4a280"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""default"",

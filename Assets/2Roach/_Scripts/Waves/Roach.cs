@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum RoachState
 {
-     Dormant,
+    Dormant,
     Choosing,
     WaitingToOrder, 
     WaitingForFood, 
@@ -125,24 +125,31 @@ public class Roach : MonoBehaviour
 
     public void ReceiveStackFood(Stack foodStack)
     {
-        if(State != RoachState.WaitingForFood)
+        if(State != RoachState.WaitingForFood) return;
+        if(State == RoachState.IsEating) 
         {
-            Debug.Log("Not Waiting for food.");
-            return;
+             Debug.Log("Already eating...");
+             return;
         }
 
         if(foodStack.IsEmpty())
         {
-            Debug.Log("No food here");
+            Debug.Log("No food here...");
             return;
         }
 
+        //Debug.Log(foodStack.StackedIngredients[0] + "IS ZERO");
+        
         _hasReceivedFood = true;
 
         var isTheSame = true;
         var containsTheSame = true;
 
-        for (int i = 0; i < foodStack.StackedIngredients.Count; i++)
+        int foodStackCount = foodStack.StackedIngredients.Count;
+        int currentOrderCount = _currentOrder.Ingredients.Count;
+
+        int smallerList = foodStack.StackedIngredients.Count >= _currentOrder.Ingredients.Count ? _currentOrder.Ingredients.Count : foodStack.StackedIngredients.Count;
+        for (int i = 0; i < smallerList; i++)
         {
             if(isTheSame)
                 if(foodStack.StackedIngredients[i] != _currentOrder.Ingredients[i])
@@ -161,7 +168,10 @@ public class Roach : MonoBehaviour
             if(containsTheSame == false) break;
         }
 
-        if(isTheSame)
+        Debug.Log("foodStack LOg");
+        foodStack.ResetStack();//Clear Stack
+
+        if(isTheSame && currentOrderCount == foodStackCount)
         {
             Debug.Log("Stack is PERFECT");
             GameManager.instance.Score.Add(20f);//TODO Balance

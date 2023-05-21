@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8fafbf34d80e8b74988841904866ac37, type: 3}
-  m_Name: IGT_RawMeat
+  m_Name: IGT_Chesse
   m_EditorClassIdentifier: 
-  _myType: 2
-  _prefModel: {fileID: 4378091827787325442, guid: be416c54a1b474b42914cb748207d77b,
+  _myType: 0
+  _prefModel: {fileID: 4378091827787325442, guid: e9f37232bddc70f41ba9786eac959f19,
     type: 3}
-  _icon: {fileID: 21300000, guid: 2800b676881921a4fafb248082d99d69, type: 3}
-  _timeToProcess: 3
-  _afterProcessIngredient: {fileID: 11400000, guid: 81d2e074c5cbb1b47ab1b1dcf5eca219,
-    type: 2}
-  _carrySpeedMultiplier: 0.8
+  _icon: {fileID: 21300000, guid: efc4c207ec59324478cde33339bddbe0, type: 3}
+  _timeToProcess: 0
+  _afterProcessIngredient: {fileID: 0}
+  _carrySpeedMultiplier: 0.9
