@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1124523462566302608}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.88, y: 2.45, z: -5.3917165}
-  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 27418998950648366}
@@ -50,9 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 1124523462566302606}
   _model: {fileID: 6871367739347371523}
-  _hat: {fileID: 5122401333825169642}
   _input: {fileID: 11400000, guid: 6358288955754b245b578ca3e8bd2282, type: 2}
-  _baseTurnSpeed: 900
+  _baseTurnSpeed: 1000
   _holdingTransform: {fileID: 5123805134866739921}
 --- !u!114 &1100012819
 MonoBehaviour:

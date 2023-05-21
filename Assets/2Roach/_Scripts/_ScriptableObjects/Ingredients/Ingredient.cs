@@ -15,7 +15,6 @@ public class Ingredient : ScriptableObject
 {
     [SerializeField] private IngredientTypes _myType;
     [SerializeField] private GameObject _prefModel;
-    [SerializeField] private Sprite _icon;
     [SerializeField] private float _timeToProcess;
     [SerializeField] private Ingredient _afterProcessIngredient;
     [SerializeField] private float _carrySpeedMultiplier = 1f;
@@ -25,5 +24,4 @@ public class Ingredient : ScriptableObject
     public float TimeToProcess { get => _timeToProcess; set => _timeToProcess = value; }
     public Ingredient AfterProcessIngredient { get => _afterProcessIngredient; set => _afterProcessIngredient = value; }
     public float CarrySpeedMultiplier { get => _carrySpeedMultiplier; set => _carrySpeedMultiplier = value; }
-    public Sprite Icon { get => _icon; }
 }

@@ -10,7 +10,6 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions
 	// so we can skip the null check when we use them
 
 	// Gameplay
-	public event UnityAction SwitchEvent = delegate { };
 	public event UnityAction InteractStartEvent = delegate { };
 	public event UnityAction<bool> InteractEvent = delegate { };
 	public event UnityAction InteractCanceledEvent = delegate { };
@@ -48,12 +47,6 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions
 				break;
 		}
 	}
-
-	public void OnSwitch(InputAction.CallbackContext context)
-    {
-		if(context.phase == InputActionPhase.Started)
-			SwitchEvent.Invoke();
-    }
 
 	public void OnMove(InputAction.CallbackContext context)
 	{
@@ -132,6 +125,5 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions
     {
         //throw new System.NotImplementedException();
     }
-
 
 }

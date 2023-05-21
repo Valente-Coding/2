@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 381219487239862019}
-  - component: {fileID: 1188414070796723051}
   m_Layer: 0
   m_Name: A3
   m_TagString: Untagged
@@ -33,26 +32,6 @@ Transform:
   m_Father: {fileID: 381219488175949151}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1188414070796723051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381219487239862018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d0d8a1e2dbf46d4b8ce2e3bcd6e3837, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _id: 2
-  _model: {fileID: 0}
-  _isPlaying: 0
-  _waitingToOrder_Time: 9
-  _waitingForFood_Time: 30
-  _eating_Time: 5
-  _state: 0
-  _currentOrder: {fileID: 0}
 --- !u!1 &381219487435968674
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,7 +41,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 381219487435968675}
-  - component: {fileID: 6686002117056623974}
   m_Layer: 0
   m_Name: A2
   m_TagString: Untagged
@@ -86,26 +64,6 @@ Transform:
   m_Father: {fileID: 381219488175949151}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -7.187, z: 0}
---- !u!114 &6686002117056623974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381219487435968674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d0d8a1e2dbf46d4b8ce2e3bcd6e3837, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _id: 1
-  _model: {fileID: 0}
-  _isPlaying: 0
-  _waitingToOrder_Time: 9
-  _waitingForFood_Time: 30
-  _eating_Time: 5
-  _state: 0
-  _currentOrder: {fileID: 0}
 --- !u!1 &381219488175949147
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,7 +73,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 381219488175949151}
-  - component: {fileID: 1818407161030947925}
   - component: {fileID: 381219488175949150}
   - component: {fileID: 381219488175949145}
   - component: {fileID: 381219488175949144}
@@ -144,21 +101,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1818407161030947925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381219488175949147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c34d8c6f9434547458620d5860c83db0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _input: {fileID: 11400000, guid: 6358288955754b245b578ca3e8bd2282, type: 2}
-  _tableRoaches: []
-  _playerInRange: 0
 --- !u!33 &381219488175949150
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -220,7 +162,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3.5
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &381219488819167523
 GameObject:
@@ -231,7 +173,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 381219488819167520}
-  - component: {fileID: 7102746952589582995}
   m_Layer: 0
   m_Name: A1
   m_TagString: Untagged
@@ -255,26 +196,6 @@ Transform:
   m_Father: {fileID: 381219488175949151}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7102746952589582995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381219488819167523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d0d8a1e2dbf46d4b8ce2e3bcd6e3837, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _id: 0
-  _model: {fileID: 0}
-  _isPlaying: 0
-  _waitingToOrder_Time: 9
-  _waitingForFood_Time: 30
-  _eating_Time: 5
-  _state: 0
-  _currentOrder: {fileID: 0}
 --- !u!1001 &381219487663829749
 PrefabInstance:
   m_ObjectHideFlags: 0
