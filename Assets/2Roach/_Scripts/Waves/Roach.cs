@@ -26,6 +26,11 @@ public class Roach : MonoBehaviour
     [SerializeField] private float _eating_Time;
     [SerializeField] private Sprite _readyToOrderSprite;
     [SerializeField] private Sprite _readyToEatSprite;
+    [SerializeField] private SimpleAudioEvent _deliverFood_CUE;
+    [SerializeField] private SimpleAudioEvent _badFood_CUE;
+    [SerializeField] private SimpleAudioEvent _mad_CUE;
+    [SerializeField] private SimpleAudioEvent _happy_CUE;
+    [SerializeField] private SimpleAudioEvent _bubble_CUE;
 
     [Header("Debug:")]
     [SerializeField]private RoachState _state;
@@ -69,6 +74,7 @@ public class Roach : MonoBehaviour
     {
         _icon.sprite = icon;
         _icon.gameObject.SetActive(true);
+        _bubble_CUE?.Play();
     }
 
     private void HideIconBubble() => _icon.gameObject.SetActive(false);
@@ -144,7 +150,7 @@ public class Roach : MonoBehaviour
         }
 
         //Debug.Log(foodStack.StackedIngredients[0] + "IS ZERO");
-        
+        _deliverFood_CUE?.Play();
         _hasReceivedFood = true;
         _hasConditionChanged = true;
 
@@ -192,6 +198,7 @@ public class Roach : MonoBehaviour
             else
             {
             Debug.Log("Not the same Ingredients");
+            _badFood_CUE?.Play();
             GameManager.instance.Score.Add(1f);//TODO Balance
             }
         }
@@ -213,6 +220,7 @@ public class Roach : MonoBehaviour
 
     private void FailOrder()
     {
+        _mad_CUE?.Play();
         StopCoroutine(COR_Order());
         State = RoachState.Dormant;
         _isPlaying = false;
@@ -221,6 +229,7 @@ public class Roach : MonoBehaviour
 
     private void CompletedOrder()
     {
+        _happy_CUE?.Play();
         StopCoroutine(COR_Order());;
         State = RoachState.Dormant;
         _isPlaying = false;

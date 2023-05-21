@@ -26,9 +26,14 @@ public class RoomManager : MonoBehaviour
     [SerializeField] bool _hasBeenOnSaloon = false;
     
     [Header("Cams")]
+    
     [SerializeField] CinemachineVirtualCamera _cam_Kitchen;
+
     [SerializeField] CinemachineVirtualCamera _cam_Hole;
     [SerializeField] CinemachineVirtualCamera _cam_Saloon; 
+[Space]
+    [SerializeField] SimpleAudioEvent _pop_CUE;
+    [SerializeField] SimpleAudioEvent _whistle_CUE;
     public RoomState State { get => _state;  }
 
     private void Start() => ActivateCamera(VCameras.Kitchen);
@@ -70,7 +75,9 @@ public class RoomManager : MonoBehaviour
         ActivateCamera(VCameras.Hole);
         //Camera Magic
         //Vignette Magic
+        _whistle_CUE.Play();
         yield return Yielders.Get(2f);
+        _pop_CUE.Play();
         _player.Switch(RoomState.Saloon);
         ActivateCamera(VCameras.Saloon);
         _input.EnableGameplayInput();
@@ -80,11 +87,14 @@ public class RoomManager : MonoBehaviour
     private IEnumerator COR_GoToKitchen()
     {
         _input.DisableAllInput();
+        ActivateCamera(VCameras.Hole);
         //Camera Magic
         //Vignette Magic
-         ActivateCamera(VCameras.Kitchen);
-        yield return Yielders.Get(1f);
+        _whistle_CUE.Play();
+        yield return Yielders.Get(2f);
+         _pop_CUE.Play();
         _player.Switch(RoomState.Kitchen);
+         ActivateCamera(VCameras.Kitchen);
         _input.EnableGameplayInput();
     }
 

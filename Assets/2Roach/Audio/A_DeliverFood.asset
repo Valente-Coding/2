@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81f8274e24b80a542b356410113a5ed8, type: 3}
-  m_Name: AE_Hello_A
+  m_Name: A_DeliverFood
   m_EditorClassIdentifier: 
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: 76ad6a37a200990429665385d32f0285, type: 3}
   volume:
-    minValue: 0
-    maxValue: 0
+    minValue: 0.45219296
+    maxValue: 0.6941691
   pitch:
-    minValue: 0
-    maxValue: 0
+    minValue: 0.8842212
+    maxValue: 1.1261973
   stereoPan:
     minValue: 0
     maxValue: 0

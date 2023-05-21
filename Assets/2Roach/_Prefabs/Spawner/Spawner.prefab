@@ -62,7 +62,7 @@ MonoBehaviour:
   _ingredientToSpawn: {fileID: 11400000, guid: be58ee584ef8ab841a3f640b8b1dcf2a, type: 2}
   _onSpawnCue: {fileID: 0}
   _input: {fileID: 11400000, guid: 6358288955754b245b578ca3e8bd2282, type: 2}
-  _playerControler: {fileID: 0}
+  _playerController: {fileID: 0}
   _icon: {fileID: 608317326566574022}
 --- !u!1 &5365559960439877055
 GameObject:
