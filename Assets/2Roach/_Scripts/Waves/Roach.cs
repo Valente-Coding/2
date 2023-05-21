@@ -26,6 +26,9 @@ public class Roach : MonoBehaviour
     [SerializeField] private float _eating_Time;
     [SerializeField] private Sprite _readyToOrderSprite;
     [SerializeField] private Sprite _readyToEatSprite;
+    [SerializeField] private Sprite _perfectCombinationSprite;
+    [SerializeField] private Sprite _notAsExpectedSprite;
+    [SerializeField] private Sprite _dontLikeItSprite;
     [SerializeField] private SimpleAudioEvent _deliverFood_CUE;
     [SerializeField] private SimpleAudioEvent _badFood_CUE;
     [SerializeField] private SimpleAudioEvent _mad_CUE;
@@ -70,11 +73,17 @@ public class Roach : MonoBehaviour
         //Debug.Log(_id + " will order " + order.name);
     }
 
-    private void DisplayIconInBubble(Sprite icon)
+    private IEnumerator COR_DisplayIconInBubble(Sprite icon, float disableDelay = -1)
     {
         _icon.sprite = icon;
         _icon.gameObject.SetActive(true);
         _bubble_CUE?.Play();
+        if (disableDelay != -1) {
+            yield return new WaitForSeconds(disableDelay);
+            HideIconBubble();
+        }
+
+        yield return null;
     }
 
     private void HideIconBubble() => _icon.gameObject.SetActive(false);
@@ -100,7 +109,7 @@ public class Roach : MonoBehaviour
 
         State = RoachState.WaitingToOrder;
         // UI.PopUp order is available
-        DisplayIconInBubble(_readyToOrderSprite);
+        StartCoroutine(COR_DisplayIconInBubble(_readyToOrderSprite));
         yield return StartCoroutine(COR_WaitForTimeOrCondition(_waitingToOrder_Time));
         HideIconBubble();
         if(!_hasOrdered)
@@ -119,9 +128,8 @@ public class Roach : MonoBehaviour
         State = RoachState.WaitingForFood;
         // UI.PopUp waiting for food.
         yield return Yielders.Get(2f);//Pop-upDelay
-        DisplayIconInBubble(_readyToEatSprite);
+        StartCoroutine(COR_DisplayIconInBubble(_readyToEatSprite));
         yield return StartCoroutine(COR_WaitForTimeOrCondition(_waitingForFood_Time));
-        HideIconBubble();
         if(!_hasReceivedFood)
         {
             FailOrder();
@@ -187,19 +195,22 @@ public class Roach : MonoBehaviour
         {
             Debug.Log("Stack is PERFECT");
             GameManager.instance.Score.Add(20f);//TODO Balance
+            StartCoroutine(COR_DisplayIconInBubble(_perfectCombinationSprite, 3f));
         }
         else
         {
             if(containsTheSame)
             {
-            Debug.Log("Its FOOD I Guess");
-            GameManager.instance.Score.Add(10f);//TODO Balance
+                Debug.Log("Its FOOD I Guess");
+                GameManager.instance.Score.Add(10f);//TODO Balance
+                StartCoroutine(COR_DisplayIconInBubble(_notAsExpectedSprite, 3f));
             }
             else
             {
-            Debug.Log("Not the same Ingredients");
-            _badFood_CUE?.Play();
-            GameManager.instance.Score.Add(1f);//TODO Balance
+                Debug.Log("Not the same Ingredients");
+                _badFood_CUE?.Play();
+                GameManager.instance.Score.Add(1f);//TODO Balance
+                StartCoroutine(COR_DisplayIconInBubble(_dontLikeItSprite, 3f));
             }
         }
     }
