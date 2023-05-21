@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private RectTransform _alertPanel;
     [SerializeField] private TMP_Text _alertTxt;
     public static UIManager instance;
+    public static UIManager Input;
 
     void Awake()
     {
@@ -22,7 +23,6 @@ public class UIManager : MonoBehaviour
             DontDestroyOnLoad(instance);
         }
     }
-
 
     public void DisplayAlertMsg(string msg, float duration)
     {
