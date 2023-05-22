@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tubo : MonoBehaviour
 {
-    [SerializeField] private List<Ingredient> _ingredientsToSpawn;
+    [SerializeField] private List<Ingredient> _ingredientsToSpawnRandomly;
 
     public static Tubo instance;
 
@@ -41,7 +41,7 @@ public class Tubo : MonoBehaviour
 
     private Ingredient GetRandomIngredient()
     {
-        return _ingredientsToSpawn[Random.Range(0,_ingredientsToSpawn.Count -1)];
+        return _ingredientsToSpawnRandomly[Random.Range(0,_ingredientsToSpawnRandomly.Count -1)];
     }
 
     public void PlaceStackInQueue(Stack placer) {

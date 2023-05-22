@@ -33,7 +33,11 @@ public class Table : MonoBehaviour
     private void InteractWithTable(Stack stack)
     {
         if (!stack.IsEmpty())
-            foreach (var roach in _tableRoaches) {
+            foreach (var roach in _tableRoaches) 
+            {
+                if(!roach.IsPlaying) continue;
+                if( roach.CurrentOrder == null) continue;
+                
                 if (stack.StackedIngredients.Count == roach.CurrentOrder.Ingredients.Count) {
                     int equalIng = 0;
                     for (int i = 0; i < stack.StackedIngredients.Count; i++) {

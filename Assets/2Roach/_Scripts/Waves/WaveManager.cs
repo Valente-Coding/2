@@ -45,7 +45,9 @@ public class WaveManager : MonoBehaviour
 
     private void ProcWaveStartActions(int waveNumber)
     {
-        if(waveNumber == 3)
+        if(waveNumber != 4)
+            UIManager.instance.DisplayAlertMsg("Wave: " + waveNumber + "/" + _waves.Count, 2.5f);
+        if(waveNumber == 4)
             UIManager.instance.DisplayAlertMsg("Tip: use Plates to hold food", 2.5f);
     }
 
@@ -65,7 +67,6 @@ public class WaveManager : MonoBehaviour
             roach.gameObject.SetActive(true);
             roach.InitOrder(_roachOrderIterator.Current.Order);
         }
-        UIManager.instance.DisplayAlertMsg("Roaches Alert!!", 3f);
         Debug.Log("Wave Started!" );
         yield return StartCoroutine(COR_WaitForRoaches());
         
