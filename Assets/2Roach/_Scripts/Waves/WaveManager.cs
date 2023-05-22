@@ -10,6 +10,7 @@ public class WaveManager : MonoBehaviour
     private IEnumerator<RoachOrder> _roachOrderIterator;
     private float _minTimeBtwOrders = .2f;
     private Wave _currentWave;
+    private int _waveNumber = 0;
 
     public Wave CurrentWave { get => _currentWave; }
     public List<Roach> Roaches { get => _roaches;  }
@@ -23,6 +24,8 @@ public class WaveManager : MonoBehaviour
     [ContextMenu("Start Next Wave")]
     private void StartNextWave()
     {
+        _waveNumber++;
+        ProcWaveStartActions(_waveNumber);
         StopAllCoroutines();
 
         if (_waveIterator.MoveNext())
@@ -40,12 +43,18 @@ public class WaveManager : MonoBehaviour
             StartCoroutine(COR_Wave(_currentWave));
     }
 
+    private void ProcWaveStartActions(int waveNumber)
+    {
+        if(waveNumber == 3)
+            UIManager.instance.DisplayAlertMsg("Tip: use Plates to hold food", 2.5f);
+    }
+
 
     private IEnumerator COR_Wave(Wave waveData)
     {
         yield return Yielders.Get(waveData.RestDurationBeforeWave);
         _roachOrderIterator = waveData.RoachOrders.GetEnumerator();
-        //GameManager.Instance.ChangeGamePhase(GameManager.GamePhase.Wave); TODO
+
         Debug.Log("Wave Started!" );
 
         while (_roachOrderIterator.MoveNext())

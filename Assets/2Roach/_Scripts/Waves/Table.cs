@@ -32,22 +32,21 @@ public class Table : MonoBehaviour
 
     private void InteractWithTable(Stack stack)
     {
-        if (stack != null)
+        if (!stack.IsEmpty())
             foreach (var roach in _tableRoaches) {
-                if (roach.CurrentOrder != null)
-                    if (stack.StackedIngredients.Count == roach.CurrentOrder.Ingredients.Count) {
-                        int equalIng = 0;
-                        for (int i = 0; i < stack.StackedIngredients.Count; i++) {
-                            if (stack.StackedIngredients[i].name == roach.CurrentOrder.Ingredients[i].name) {
-                                equalIng++;
-                            }
-                        }
-
-                        if (equalIng == stack.StackedIngredients.Count) {
-                            roach.ReceiveStackFood(stack);
-                            return;
+                if (stack.StackedIngredients.Count == roach.CurrentOrder.Ingredients.Count) {
+                    int equalIng = 0;
+                    for (int i = 0; i < stack.StackedIngredients.Count; i++) {
+                        if (stack.StackedIngredients[i].name == roach.CurrentOrder.Ingredients[i].name) {
+                            equalIng++;
                         }
                     }
+
+                    if (equalIng == stack.StackedIngredients.Count) {
+                        roach.ReceiveStackFood(stack);
+                        return;
+                    }
+                }
             }
 
         foreach (var roach in _tableRoaches)
@@ -56,7 +55,7 @@ public class Table : MonoBehaviour
             {
                 roach.TakeOrder();
                 
-                if(stack != null) {
+                if (!stack.IsEmpty()) {
                     roach.ReceiveStackFood(stack);
                 }
             }
