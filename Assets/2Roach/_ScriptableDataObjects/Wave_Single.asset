@@ -20,12 +20,10 @@ MonoBehaviour:
   - _roachId: 0
     _order: {fileID: 11400000, guid: c3c1f759430e7dd41bd0b7b0af994912, type: 2}
   - _roachId: 1
-    _order: {fileID: 11400000, guid: c3c1f759430e7dd41bd0b7b0af994912, type: 2}
+    _order: {fileID: 11400000, guid: 1c01b0e12da44e040b46725567716dcd, type: 2}
   - _roachId: 2
-    _order: {fileID: 11400000, guid: c3c1f759430e7dd41bd0b7b0af994912, type: 2}
-  - _roachId: 6
-    _order: {fileID: 11400000, guid: 554a38850f7f3ad478cef1bf8fe81316, type: 2}
+    _order: {fileID: 11400000, guid: 08b57193627884645b4a46464ee1d57a, type: 2}
   - _roachId: 7
     _order: {fileID: 11400000, guid: 554a38850f7f3ad478cef1bf8fe81316, type: 2}
   - _roachId: 8
-    _order: {fileID: 11400000, guid: 554a38850f7f3ad478cef1bf8fe81316, type: 2}
+    _order: {fileID: 11400000, guid: 95b55658096173a4f9179b1ae0f82768, type: 2}

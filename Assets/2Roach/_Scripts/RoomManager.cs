@@ -50,7 +50,11 @@ public class RoomManager : MonoBehaviour
 
     private void SwitchRoom()
     {
-        if(!_player.CurrentStack.IsEmpty()) return;
+        if(!_player.CurrentStack.IsEmpty()) 
+        {
+            UIManager.instance.DisplayAlertMsg("Can't switch with items.", 2.5f);
+            return;
+        }
         switch (_state)
         {               
             case RoomState.Kitchen:

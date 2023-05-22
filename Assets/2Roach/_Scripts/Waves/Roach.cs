@@ -231,6 +231,7 @@ public class Roach : MonoBehaviour
 
     private void FailOrder()
     {
+        HideIconBubble();
         _mad_CUE?.Play();
         StopCoroutine(COR_Order());
         State = RoachState.Dormant;
